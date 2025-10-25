@@ -5,18 +5,21 @@ Hi there! 👋 Welcome to my consolidated analytics portfolio. This repository b
 
 My goal is to turn raw data into clear, actionable insights. Below, you'll find a summary of each project, including live links, key insights, and links to the project files.
 
-🚀 Portfolio Quick Links
+---
 
-Procurement Dashboard (Tableau)
+## 🚀 Projects Overview
 
-Speeding Fines Interactive Dashboard (D3.js)
+| Project                                                              | Description                                                                                                                                                           | Live Demo                                                                                                                                          |
+| -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **[Procurement Dashboard (Tableau)](#1-procurement-dashboard-tableau)**              | A strategic dashboard for a retail chain, analyzing procurement data to identify cost savings, manage supplier risk, and optimize spending.                       | [View on Tableau Public](https://public.tableau.com/views/Velocipede_Cycles_Procurement_Analytics_Dashboard/KPIMonitoringDashboard?:language=en-US) |
+| **[Speeding Fines Dashboard (D3.js)](#2-interactive-speeding-fines-dashboard-d3js)** | An interactive web dashboard visualizing Australian speeding fine data with D3.js, featuring data processed by a KNIME ETL workflow.                       | [View Live Website](https://web-dashboard-speeding-fines-2023-australia.s3.ap-southeast-2.amazonaws.com/index.html)                          |
+| **[HR Attrition Dashboard (Power BI)](#3-hr-attrition-dashboard-power-bi)**            | An HR analytics dashboard designed to uncover the key drivers of employee turnover, providing actionable insights to improve retention.                          | [View on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiY2M0N2U2NGQtM2E5NC00ODc3LThkMTAtODAxMjFiZDBlNGE5IiwidCI6ImRmN2Y3NTc5LTNlOWMtNGE3ZS1iODQ0LTQyMDI4MGY1Mzg1OSIsImMiOjEwfQ%3D%3D)      |
+| **[Contoso Sales Dashboard (Power BI)](#4-contoso-sales-dashboard-power-bi)**        | A comprehensive sales and customer service dashboard for an e-commerce business, tracking KPIs from revenue and deals to client satisfaction. | [View on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiZTk1ZjhiMWItOTVhYS00NjhlLWIyMDAtYjU1N2M4NTdmN2M2IiwidCI6ImRmN2Y3NTc5LTNlOWMtNGE3ZS1iODQ0LTQyMDI4MGY1Mzg1OSIsImMiOjEwfQ%3D%3D)      |
 
-HR Attrition Dashboard (Power BI)
+---
 
-Contoso Sales Dashboard (Power BI)
-
-1. Procurement Dashboard (Tableau)
-This dashboard provides a strategic analysis of procurement data for 'Velocipede Cycles', an expanding Australian retail chain. Faced with shrinking profit margins despite growing sales, the project dives into two years of purchasing data to identify cost-saving opportunities, mitigate supply chain risks, and enhance supplier management. The visualizations are designed for a senior management audience, translating complex data into clear, actionable insights.
+## 1. Procurement Dashboard (Tableau)
+This dashboard offers a strategic deep-dive into the procurement operations of **'Velocipede Cycles'**, an expanding Australian retail chain. Tasked with addressing shrinking profit margins amid growing sales, this project analyzes two years of purchasing data to uncover cost-saving opportunities, mitigate supply chain risks, and enhance supplier management. The visualizations are tailored for a senior management audience, transforming complex data into clear, actionable insights.
 
 **View Live Dashboard:** [Click here to view on Tableau Public](https://public.tableau.com/views/Velocipede_Cycles_Procurement_Analytics_Dashboard/KPIMonitoringDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
@@ -58,7 +61,7 @@ This dashboard provides a strategic analysis of procurement data for 'Velocipede
 - 📄 **[`final_dashboard.twbx`](./Tableau-Procurement-Dashboard/final_dashboard.twbx)** – The complete Tableau workbook package containing all dashboards, data sources, and formatting.
 - 📊 **[`Cleaned_Data_Velocipede_Cycles.xlsx`](./Tableau-Procurement-Dashboard/dataset/Cleaned_Data_Velocipede_Cycles.xlsx)** – The cleaned and prepared dataset used for the analysis.
 
-2. Interactive Speeding Fines Dashboard (D3.js)
+## 2. Interactive Speeding Fines Dashboard (D3.js)
 This project addresses a brief from the Bureau of Infrastructure and Transport Research Economics (BITRE) to visualize newly detailed road safety enforcement data from 2023. The result is a fully interactive, custom-built web dashboard using D3.js to visualize data on speeding fines across Australia. It allows users to explore when, where, and how Australians were fined, telling a data-driven story about traffic enforcement patterns. The design process is documented in a detailed design book.
 
 **View Live Dashboard:** [Click here to view the live dashboard](https://web-dashboard-speeding-fines-2023-australia.s3.ap-southeast-2.amazonaws.com/index.html)
@@ -126,7 +129,7 @@ The raw data from various jurisdictions required significant cleaning and transf
 ### Project Files
 - 📁 **[`Project Folder`](./Website-Dashboard-Speeding-Fines-2023-Australia/)** – Contains all project files including `index.html`, `js/`, `css/`, and `data/`.
 
-3. HR Attrition Dashboard (Power BI)
+## 3. HR Attrition Dashboard (Power BI)
 Mr. Ryan, the Head of HR, wanted a comprehensive and interactive dashboard to analyze the company’s employees. The goal was to answer key HR questions about employee demographics, workforce size, attrition rates, hiring trends, performance ratings, and satisfaction scores. This dashboard allows executives to filter by department, gender, age group, and year to get both a high-level overview and detailed insights for better decision-making.
 
 **View Live Dashboard:** [Click here to view on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiY2M0N2U2NGQtM2E5NC00ODc3LThkMTAtODAxMjFiZDBlNGE5IiwidCI6ImRmN2Y3NTc5LTNlOWMtNGE3ZS1iODQ0LTQyMDI4MGY1Mzg1OSIsImMiOjEwfQ%3D%3D&pageName=23985c93ca4941285647)
@@ -168,7 +171,7 @@ Mr. Ryan, the Head of HR, wanted a comprehensive and interactive dashboard to an
 - 📄 **[`HR Attrition Dashboard.pbix`](./PowerBI-HR-Dashboard/HR%20Attrition%20Dashboard.pbix)**: The Power BI dashboard file.
 - 📁 **[`dataset/`](./PowerBI-HR-Dashboard/dataset/)**: The complete dataset used for the analysis.
 
-4. Contoso Sales Dashboard (Power BI)
+## 4. Contoso Sales Dashboard (Power BI)
 The CEO of the Contoso e-commerce business needs a single interactive dashboard to understand the company’s sales performance and customer service efficiency. This dashboard helps them track revenue trends, see which products and campaigns bring in the most sales, and check if KPIs are being met. It also shows how well the customer service team is performing, who the top revenue clients are, and which open cases need attention so the company can improve client retention and satisfaction.
 
 **View Live Dashboard:** [Click here to view on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiZTk1ZjhiMWItOTVhYS00NjhlLWIyMDAtYjU1N2M4NTdmN2M2IiwidCI6ImRmN2Y3NTc5LTNlOWMtNGE3ZS1iODQ0LTQyMDI4MGY1Mzg1OSIsImMiOjEwfQ%3D%3D&pageName=ReportSection909ea50e7939156807d6)
