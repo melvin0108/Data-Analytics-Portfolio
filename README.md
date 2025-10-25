@@ -127,51 +127,93 @@ The raw data from various jurisdictions required significant cleaning and transf
 - 📁 **[`Project Folder`](./Website-Dashboard-Speeding-Fines-2023-Australia/)** – Contains all project files including `index.html`, `js/`, `css/`, and `data/`.
 
 3. HR Attrition Dashboard (Power BI)
+Mr. Ryan, the Head of HR, wanted a comprehensive and interactive dashboard to analyze the company’s employees. The goal was to answer key HR questions about employee demographics, workforce size, attrition rates, hiring trends, performance ratings, and satisfaction scores. This dashboard allows executives to filter by department, gender, age group, and year to get both a high-level overview and detailed insights for better decision-making.
 
-This dashboard analyzes employee attrition (turnover) to identify key factors driving employees to leave. The goal is to provide actionable insights for the HR department to improve retention.
+**View Live Dashboard:** [Click here to view on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiY2M0N2U2NGQtM2E5NC00ODc3LThkMTAtODAxMjFiZDBlNGE5IiwidCI6ImRmN2Y3NTc5LTNlOWMtNGE3ZS1iODQ0LTQyMDI4MGY1Mzg1OSIsImMiOjEwfQ%3D%3D&pageName=23985c93ca4941285647)
 
-View Live Dashboard: Click here to view on Power BI Service
+### Dashboard Snapshots
+### 📍 Employee Overview
+<img src="./PowerBI-HR-Dashboard/images/Employee_Overview.png" alt="Employee Overview">
 
-Browse Project Files: ./PowerBI-HR-Dashboard/ (Contains the HR Attrition Dashboard.pbix file, dataset, and images)
+### 📍 Demographics
+<img src="./PowerBI-HR-Dashboard/images/Demographics.png" alt="Demographics">
 
-💡 Key Insights
+### 📍 Attrition Analysis
+<img src="./PowerBI-HR-Dashboard/images/Attrition.png" alt="Attrition Analysis">
 
-Insight 1: [e.g., "Employee attrition is highest within the 'Sales' department, specifically among those with 1-2 years of tenure."]
+### 📍 Performance Tracking
+<img src="./PowerBI-HR-Dashboard/images/Performance_Tracking.png" alt="Performance Tracking">
 
-Insight 2: [e.g., "A low 'JobSatisfaction' score combined with 'OverTime' work is the strongest predictor of attrition."]
+### 📍 Data Modeling (Star Schema)
+<img src="./PowerBI-HR-Dashboard/images/Data_Modelling.png" alt="Data Modeling">
 
-Insight 3: [e.g., "Employees who travel frequently for work have a 25% higher attrition rate than those who do not."]
+### 💡 Key Insights
+- ✅ **Total Employees**: 1,470
+- ✅ **Attrition Rate**: 16.12% (highest in Sales – 20.63%)
+- ✅ **Demographic Trends**: The majority of employees are 20–29 years old, and this group also has the highest resignation rate.
+- ✅ **Retention Factors**: Employees without stock options are more likely to leave.
 
-🛠️ Tools & Data
+### 📈 Recommendations to Reduce Attrition
+- 📌 **Introduce stock options or bonuses** to improve retention, as higher attrition is seen among employees without them.
+- 📌 **Enhance career growth for younger employees** with mentorship and training programs.
+- 📌 **Focus on Sales & HR departments**, as these teams have the highest attrition rates.
+- 📌 **Monitor job satisfaction closely**, as self-ratings and job satisfaction show downward trends.
 
-Tools: Power BI, DAX, Power Query
+### 🛠️ Tech Stack
+- **Power BI Desktop & Power Query**: For data cleaning, transformation, and modeling.
+- **DAX**: Used for creating KPIs and custom calculations.
+- **Data Modeling (Star Schema)**: Implemented to optimize the data structure for reporting.
 
-Dataset: [e.g., "IBM HR Analytics Employee Attrition & Performance dataset."]
+### Project Files
+- 📄 **[`HR Attrition Dashboard.pbix`](./PowerBI-HR-Dashboard/HR%20Attrition%20Dashboard.pbix)**: The Power BI dashboard file.
+- 📁 **[`dataset/`](./PowerBI-HR-Dashboard/dataset/)**: The complete dataset used for the analysis.
 
 4. Contoso Sales Dashboard (Power BI)
+The CEO of the Contoso e-commerce business needs a single interactive dashboard to understand the company’s sales performance and customer service efficiency. This dashboard helps them track revenue trends, see which products and campaigns bring in the most sales, and check if KPIs are being met. It also shows how well the customer service team is performing, who the top revenue clients are, and which open cases need attention so the company can improve client retention and satisfaction.
 
-This dashboard tracks key sales KPIs for the fictional company Contoso. It breaks down revenue, profit, and units sold by region, product category, and time.
+**View Live Dashboard:** [Click here to view on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiZTk1ZjhiMWItOTVhYS00NjhlLWIyMDAtYjU1N2M4NTdmN2M2IiwidCI6ImRmN2Y3NTc5LTNlOWMtNGE3ZS1iODQ0LTQyMDI4MGY1Mzg1OSIsImMiOjEwfQ%3D%3D&pageName=ReportSection909ea50e7939156807d6)
 
-View Live Dashboard: Click here to view on Power BI Service
+### Dashboard Snapshots
+### 📍 Sales Overview
+<img src="./PowerBI-Sales-Dashboard/images/Sales_Overview.png" alt="Sales Overview">
 
-Browse Project Files: ./PowerBI-Sales-Dashboard/ (Contains the ContosoDashboardFinal.pbix file, dataset, and images)
+### 📍 Customer Service Analysis
+<img src="./PowerBI-Sales-Dashboard/images/Customer_Service_Analysis.png" alt="Customer Service Analysis">
 
-💡 Key Insights
+### 📍 Key Factors Driving Won vs Lost Deals
+<img src="./PowerBI-Sales-Dashboard/images/Key_Influencers_Won_vs_Lost_Deals.png" alt="Key Factors Driving Won vs Lost Deals">
 
-Insight 1: [e.g., "While 'Computers' generate the most revenue, the 'Audio' category has the highest profit margin at 48%."]
+### 📍 Revenue Analysis – Performance & Contributors
+<img src="./PowerBI-Sales-Dashboard/images/Revenue_Analysis.png" alt="Revenue Analysis">
 
-Insight 2: [e.g., "The 'Online' sales channel is outperforming 'Reseller' by 30% in year-over-year growth."]
+### 📍 Data Modeling (Snowflake Schema)
+<img src="./PowerBI-Sales-Dashboard/images/Data_Modelling.png" alt="Data Modeling">
 
-🛠️ Tools & Data
+### 💡 Key Insights
+- ✅ **Close Rate**: 64.5% with 12,346 total opportunities.
+- ✅ **Revenue Trend**: The highest revenue months were July 2020 ($1.6M) and Jan 2021 ($1.6M).
+- ✅ **Top Revenue Products**: Design App ($6.1M), Stand-up Desk ($4.5M), and Tablets ($4.1M).
+- ✅ **Top Campaign Type**: Email campaigns generated the greatest potential sales value ($3.3M).
+- ✅ **Top Clients**: Abbott Inc. and Abercathy & Sons are high-revenue contributors worth a retention focus.
+- ✅ **Customer Service KPIs**: Average customer satisfaction is 4.27, with a 16% escalation rate and 76% SLA compliance.
 
-Tools: Power BI, DAX
+### 📈 Recommendations for Business Growth
+- 📌 **Focus on High-Revenue Products**: The Design App, Stand-up Desk, and Tablets have the highest returns.
+- 📌 **Expand Email Marketing Campaigns**, as email generates the highest potential sales value.
+- 📌 **Reward Top Clients** like Abbott Inc. and Abercathy & Sons with loyalty programs.
+- 📌 **Improve Customer Service Efficiency** by reducing resolution times and escalation rates.
 
-Dataset: [e.g., "Contoso Sales public dataset from Microsoft."]
+### 🛠️ Tech Stack
+- **Power BI Desktop & Power Query**: For data cleaning and transformation.
+- **DAX Measures**: For calculating KPIs for revenue, close rate, and customer satisfaction.
+- **Data Modeling (Snowflake Schema)**: Implemented to optimize data for sales and customer service reporting.
+
+### Project Files
+- 📄 **[`ContosoDashboardFinal.pbix`](./PowerBI-Sales-Dashboard/ContosoDashboardFinal.pbix)**: The Power BI dashboard file.
+- 📁 **[`dataset/`](./PowerBI-Sales-Dashboard/dataset/)**: The complete dataset used for the analysis.
 
 📫 Connect With Me
 
 Thank you for reviewing my portfolio. I'm passionate about data storytelling and always open to new opportunities and collaborations.
 
-LinkedIn: https://www.linkedin.com/in/yourprofile
-
-My Website: https://www.yourpersonalwebsite.com
+LinkedIn: https://www.linkedin.com/in/melvin-nguyen/
