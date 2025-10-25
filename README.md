@@ -1,5 +1,5 @@
 # Data-Analyticss-Portfolio
-[Your Name]'s Data Analytics Portfolio
+Melvin's Data Analytics Portfolio
 
 Hi there! 👋 Welcome to my consolidated analytics portfolio. This repository brings together several key projects, showcasing my skills across a range of BI and web technologies, from Tableau and Power BI to custom web dashboards with D3.js.
 
@@ -16,24 +16,39 @@ Contoso Sales Dashboard (Power BI)
 Speeding Fines Interactive Dashboard (D3.js)
 
 1. Procurement Dashboard (Tableau)
+This dashboard provides a strategic analysis of procurement data for 'Velocipede Cycles', an expanding Australian retail chain. Faced with shrinking profit margins despite growing sales, the project dives into two years of purchasing data to identify cost-saving opportunities, mitigate supply chain risks, and enhance supplier management. The visualizations are designed for a senior management audience, translating complex data into clear, actionable insights.
 
-This dashboard analyzes procurement and supplier data to identify cost-saving opportunities and manage supplier risk.
+**View Live Dashboard:** [Click here to view on Tableau Public](https://public.tableau.com/views/Velocipede_Cycles_Procurement_Analytics_Dashboard/KPIMonitoringDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
-View Live Dashboard: Click here to view on Tableau Public
+### Dashboard Snapshots
+<img src="./Tableau-Procurement-Dashboard/images/KPI_Monitoring_Dashboard.png" alt="KPI Monitoring Dashboard" width="49%"> <img src="./Tableau-Procurement-Dashboard/images/Supplier_Performance_Dashboard.png" alt="Supplier Performance Dashboard" width="49%">
+<br>
+<img src="./Tableau-Procurement-Dashboard/images/Cost_Saving_Analysis_Dashboard.png" alt="Cost Saving Analysis Dashboard" width="49%"> <img src="./Tableau-Procurement-Dashboard/images/Data_Modelling.png" alt="Data Modelling" width="49%">
 
-Browse Project Files: ./Tableau-Procurement-Dashboard/ (Contains the final_dashboard.twbx file, dataset, and images)
+### 💡 Key Insights
 
-💡 Key Insights
+- **High-Risk Supplier Concentration:** Spend grew 10% year-on-year to $11.5M, but remains concentrated on just 10 suppliers. The top four vendors account for 54% of total spend, creating significant supply chain vulnerability.
+- **Strategic Components Drive Budget:** Nearly half (49%) of the entire procurement budget is spent on just three categories—frames, displays, and batteries. Optimizing costs in these areas offers the highest potential financial impact.
+- **Untapped Savings in Price Variance:** Significant price gaps exist for identical items between suppliers (e.g., a $260 difference per carbon frame), highlighting clear opportunities for cost reduction through strategic sourcing.
+- **Evidence of Successful Past Optimizations:** A 26% decrease in overall potential savings from 2023 indicates that prior cost-cutting initiatives were effective, particularly in core component categories.
+- **Predictable Seasonal Spending Patterns:** Procurement activity follows a clear seasonal cycle with peaks in March–April and June–October, offering strategic windows for contract negotiations during quieter periods.
 
-Insight 1: [e.g., "80% of total spending is concentrated with just 20% of suppliers, indicating a high-risk dependency."]
+### 📈 Recommendations for Business Growth
 
-Insight 2: [e.g., "'Supplier B' has a 95% on-time delivery rate but a 10% defect rate, which is twice the company average."]
+- **Diversify the Supplier Base:** Actively onboard alternative suppliers for critical components like frames and electronics to mitigate the risk of over-reliance on a few key vendors.
+- **Renegotiate High-Value Contracts:** Leverage the high spend volume in top categories (frames, displays, batteries) to renegotiate pricing and terms for better margins.
+- **Consolidate Purchasing with Cost-Effective Suppliers:** Shift purchasing volume for items with high price variance to consistently lower-priced suppliers to realize immediate cost savings.
+- **Focus on Next-Generation Cost Initiatives:** With initial "easy wins" realized, pivot to more advanced cost-saving strategies like supplier innovation, component standardization, and design optimization.
+- **Align Negotiation Cycles with Off-Peak Seasons:** Schedule major contract reviews and supplier negotiations during quieter procurement months (e.g., Jan-Mar) to gain a strategic advantage.
 
-🛠️ Tools & Data
+### 🛠️ Tech Stack
+- **Tableau Desktop & Tableau Prep Builder** – Data cleaning, transformation, modeling, and creation of interactive dashboards.
+- **Data Modeling** – Developed a logical data model to structure procurement data for analysis.
+- **Interactive Visuals** – Designed intuitive and compelling visualizations to support executive decision-making.
 
-Tools: Tableau, [Any other tools, e.g., SQL, Excel]
-
-Dataset: [e.g., "A fictional procurement dataset covering suppliers, purchase orders, and item costs."]
+### Project Files
+- 📄 **[`final_dashboard.twbx`](./Tableau-Procurement-Dashboard/final_dashboard.twbx)** – The complete Tableau workbook package containing all dashboards, data sources, and formatting.
+- 📊 **[`Cleaned_Data_Velocipede_Cycles.xlsx`](./Tableau-Procurement-Dashboard/dataset/Cleaned_Data_Velocipede_Cycles.xlsx)** – The cleaned and prepared dataset used for the analysis.
 
 2. HR Attrition Dashboard (Power BI)
 
