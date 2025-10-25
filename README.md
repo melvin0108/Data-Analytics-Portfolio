@@ -58,7 +58,75 @@ This dashboard provides a strategic analysis of procurement data for 'Velocipede
 - 📄 **[`final_dashboard.twbx`](./Tableau-Procurement-Dashboard/final_dashboard.twbx)** – The complete Tableau workbook package containing all dashboards, data sources, and formatting.
 - 📊 **[`Cleaned_Data_Velocipede_Cycles.xlsx`](./Tableau-Procurement-Dashboard/dataset/Cleaned_Data_Velocipede_Cycles.xlsx)** – The cleaned and prepared dataset used for the analysis.
 
-2. HR Attrition Dashboard (Power BI)
+2. Interactive Speeding Fines Dashboard (D3.js)
+This project addresses a brief from the Bureau of Infrastructure and Transport Research Economics (BITRE) to visualize newly detailed road safety enforcement data from 2023. The result is a fully interactive, custom-built web dashboard using D3.js to visualize data on speeding fines across Australia. It allows users to explore when, where, and how Australians were fined, telling a data-driven story about traffic enforcement patterns. The design process is documented in a detailed design book.
+
+**View Live Dashboard:** [Click here to view the live dashboard](https://web-dashboard-speeding-fines-2023-australia.s3.ap-southeast-2.amazonaws.com/index.html)
+
+### Dashboard Snapshots
+### 📍 Home Page – Project Introduction
+<img src="./Website-Dashboard-Speeding-Fines-2023-Australia/images/homepage.png" alt="Home Page">
+
+### 📍 Monthly Trends & Detection Methods
+<img src="./Website-Dashboard-Speeding-Fines-2023-Australia/images/dashboard-part1.png" alt="Detection Method and KPI Summary">
+
+### 📍 Age Group & Jurisdiction Breakdown
+<img src="./Website-Dashboard-Speeding-Fines-2023-Australia/images/dashboard-part2.png" alt="Demographics and Jurisdiction Charts">
+
+### 💡 Key Insights
+- ✅ **Seasonal Spikes in Fines**: The data reveals significant monthly variations in speeding fines, with notable peaks typically occurring around public holidays and summer months, suggesting a correlation between increased travel and enforcement activity.
+- ✅ **Camera vs. Officer Discrepancy**: Speed cameras account for a substantially higher number of fines compared to police-issued tickets, highlighting the critical role of automated enforcement in road safety.
+- ✅ **Youth Demographic Overrepresentation**: Younger drivers, particularly those in the 20-29 age bracket, are disproportionately represented in speeding infringements across most Australian states.
+- ✅ **Jurisdictional Hotspots**: Populous states like New South Wales and Victoria emerge as hotspots with the highest volume of fines, which corresponds to their larger road networks and extensive camera systems.
+
+### 📈 Policy & Public Safety Recommendations
+- 📌 **Targeted Safety Campaigns**: Develop and launch road safety campaigns aimed at the 20-29 age demographic, emphasizing the risks and consequences of speeding.
+- 📌 **Increased Transparency**: Enhance public awareness regarding the locations and operational times of speed cameras to act as a deterrent and encourage compliance.
+- 📌 **Optimized Patrol Deployment**: Use the insights on fine hotspots to inform the strategic deployment of police patrols, focusing on areas and times with higher instances of speeding.
+
+###  ETL Process - KNIME Workflow
+The raw data from various jurisdictions required significant cleaning and transformation. KNIME was used to create a robust ETL pipeline that standardized formats, handled missing values, and aggregated the data for visualization.
+<img src="./Website-Dashboard-Speeding-Fines-2023-Australia/images/knime-output-pipeline.png" alt="KNIME Final Export">
+
+<details>
+<summary>Click to view individual state workflows</summary>
+
+### QLD Workflow
+<img src="./Website-Dashboard-Speeding-Fines-2023-Australia/images/knime-qld.png" alt="KNIME Workflow for QLD">
+
+### ACT Workflow
+<img src="./Website-Dashboard-Speeding-Fines-2023-Australia/images/knime-act.png" alt="KNIME Workflow for ACT">
+
+### NSW Workflow
+<img src="./Website-Dashboard-Speeding-Fines-2023-Australia/images/knime-nsw.png" alt="KNIME Workflow for NSW">
+
+### NT Workflow
+<img src="./Website-Dashboard-Speeding-Fines-2023-Australia/images/knime-nt.png" alt="KNIME Workflow for NT">
+
+### SA Workflow
+<img src="./Website-Dashboard-Speeding-Fines-2023-Australia/images/knime-sa.png" alt="KNIME Workflow for SA">
+
+### TAS Workflow
+<img src="./Website-Dashboard-Speeding-Fines-2023-Australia/images/knime-tas.png" alt="KNIME Workflow for TAS">
+
+### VIC Workflow
+<img src="./Website-Dashboard-Speeding-Fines-2023-Australia/images/knime-vic.png" alt="KNIME Workflow for VIC">
+
+### WA Workflow
+<img src="./Website-Dashboard-Speeding-Fines-2023-Australia/images/knime-wa.png" alt="KNIME Workflow for WA">
+
+</details>
+
+### 🛠️ Tech Stack
+- **Visualizations**: D3.js v7
+- **Front-End**: HTML5, CSS3, JavaScript (ES6+)
+- **ETL & Cleaning**: KNIME Analytics Platform
+- **Hosting**: Amazon S3 (static website)
+
+### Project Files
+- 📁 **[`Project Folder`](./Website-Dashboard-Speeding-Fines-2023-Australia/)** – Contains all project files including `index.html`, `js/`, `css/`, and `data/`.
+
+3. HR Attrition Dashboard (Power BI)
 
 This dashboard analyzes employee attrition (turnover) to identify key factors driving employees to leave. The goal is to provide actionable insights for the HR department to improve retention.
 
@@ -80,7 +148,7 @@ Tools: Power BI, DAX, Power Query
 
 Dataset: [e.g., "IBM HR Analytics Employee Attrition & Performance dataset."]
 
-3. Contoso Sales Dashboard (Power BI)
+4. Contoso Sales Dashboard (Power BI)
 
 This dashboard tracks key sales KPIs for the fictional company Contoso. It breaks down revenue, profit, and units sold by region, product category, and time.
 
@@ -99,28 +167,6 @@ Insight 2: [e.g., "The 'Online' sales channel is outperforming 'Reseller' by 30%
 Tools: Power BI, DAX
 
 Dataset: [e.g., "Contoso Sales public dataset from Microsoft."]
-
-4. Interactive Speeding Fines Dashboard (D3.js)
-
-This is a fully interactive, custom-built web dashboard using D3.js to visualize data on speeding fines. Users can filter and explore the data to understand patterns in enforcement.
-
-View Live Website: Click here to view the live dashboard
-
-Browse Project Files: ./Website-Dashboard-Speeding-Fines-2.../ (Contains the index.html, js/, css/, and data/ files)
-
-💡 Key Features
-
-Feature 1: [e.g., "Interactive bar chart that updates dynamically based on user-selected filters (e.g., time of day, fine amount)."]
-
-Feature 2: [e.g., "Data processed and cleaned using a KNIME workflow (speedfines-1.knwf)."]
-
-Insight 1: [e.g., "A key finding from the dashboard is that the highest number of fines occurs between 8-10 AM on weekdays."]
-
-🛠️ Tools & Data
-
-Tools: JavaScript (ES6+), D3.js, HTML5, CSS3, KNIME (for data prep)
-
-Dataset: [e.g., "Publicly available data on speeding fines from..."]
 
 📫 Connect With Me
 
