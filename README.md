@@ -21,9 +21,13 @@ This dashboard provides a strategic analysis of procurement data for 'Velocipede
 **View Live Dashboard:** [Click here to view on Tableau Public](https://public.tableau.com/views/Velocipede_Cycles_Procurement_Analytics_Dashboard/KPIMonitoringDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ### Dashboard Snapshots
-<img src="./Tableau-Procurement-Dashboard/images/KPI_Monitoring_Dashboard.png" alt="KPI Monitoring Dashboard" width="49%"> <img src="./Tableau-Procurement-Dashboard/images/Supplier_Performance_Dashboard.png" alt="Supplier Performance Dashboard" width="49%">
+<img src="./Tableau-Procurement-Dashboard/images/KPI_Monitoring_Dashboard.png" alt="KPI Monitoring Dashboard" width="49%">
 <br>
-<img src="./Tableau-Procurement-Dashboard/images/Cost_Saving_Analysis_Dashboard.png" alt="Cost Saving Analysis Dashboard" width="49%"> <img src="./Tableau-Procurement-Dashboard/images/Data_Modelling.png" alt="Data Modelling" width="49%">
+<img src="./Tableau-Procurement-Dashboard/images/Supplier_Performance_Dashboard.png" alt="Supplier Performance Dashboard" width="49%">
+<br>
+<img src="./Tableau-Procurement-Dashboard/images/Cost_Saving_Analysis_Dashboard.png" alt="Cost Saving Analysis Dashboard" width="49%">
+<br>
+<img src="./Tableau-Procurement-Dashboard/images/Data_Modelling.png" alt="Data Modelling" width="49%">
 
 ### 💡 Key Insights
 
