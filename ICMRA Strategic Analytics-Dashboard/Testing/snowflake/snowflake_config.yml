@@ -1,0 +1,44 @@
+# ═══════════════════════════════════════════════════════════════════
+# ICMRA Analytics — Snowflake Connection Reference
+# Copy values into dbt profiles.yml or Power BI connection dialog
+# ═══════════════════════════════════════════════════════════════════
+
+snowflake:
+  account: "your_org-your_account"          # e.g. xy12345.us-east-1
+  region: "us-east-1"                        # Snowflake region
+  cloud: "aws"                               # Cloud provider
+
+  database: "ICMRA_DB"
+  warehouse: "ICMRA_ETL_WH"
+  schema: "ANALYTICS"
+
+  roles:
+    etl: "ICMRA_ETL_ROLE"                    # dbt service user
+    analyst: "ICMRA_ANALYST_ROLE"            # Read-only analyst access
+    bi: "ICMRA_BI_ROLE"                      # Power BI service account
+
+  warehouses:
+    etl:
+      name: "ICMRA_ETL_WH"
+      size: "X-Small"
+      auto_suspend: 120
+      purpose: "dbt model builds and snapshots"
+
+    bi:
+      name: "ICMRA_BI_WH"
+      size: "X-Small"
+      auto_suspend: 60
+      multi_cluster: true
+      max_clusters: 2
+      purpose: "Power BI import and DirectQuery"
+
+  schemas:
+    raw: "RAW"              # Source data (never modify)
+    staging: "STAGING"      # dbt staging models
+    analytics: "ANALYTICS"  # Star schema marts (Power BI source)
+    reporting: "REPORTING"  # Executive aggregates
+
+  cost_control:
+    monthly_credit_quota: 50
+    notify_at_pct: 80
+    suspend_at_pct: 100

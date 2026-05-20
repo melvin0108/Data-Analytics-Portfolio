@@ -1,0 +1,12 @@
+[
+  {"visual_type": "card", "name": "kpi_total_paid", "x": 90, "y": 80, "width": 390, "height": 120, "title": "Total Revenue Paid"},
+  {"visual_type": "card", "name": "kpi_paid_pledges", "x": 510, "y": 80, "width": 390, "height": 120, "title": "Paid Pledges"},
+  {"visual_type": "card", "name": "kpi_avg_gift", "x": 930, "y": 80, "width": 390, "height": 120, "title": "Avg Gift Size"},
+  {"visual_type": "card", "name": "kpi_conversion", "x": 1350, "y": 80, "width": 390, "height": 120, "title": "Pledge Conversion %"},
+  {"visual_type": "lineChart", "name": "trend_line_paid", "x": 90, "y": 230, "width": 840, "height": 350, "title": "Total Paid Monthly Trend"},
+  {"visual_type": "donutChart", "name": "donut_account_type", "x": 960, "y": 230, "width": 370, "height": 350, "title": "Revenue by Account Type"},
+  {"visual_type": "donutChart", "name": "donut_contrib_group", "x": 1360, "y": 230, "width": 370, "height": 350, "title": "Revenue by Contribution Group"},
+  {"visual_type": "clusteredBarChart", "name": "bar_top_countries", "x": 90, "y": 610, "width": 560, "height": 255, "title": "Top Countries by Revenue"},
+  {"visual_type": "clusteredBarChart", "name": "bar_research_area", "x": 680, "y": 610, "width": 560, "height": 255, "title": "Revenue by Research Area"},
+  {"visual_type": "clusteredBarChart", "name": "bar_channel_focus", "x": 1270, "y": 610, "width": 460, "height": 255, "title": "Revenue by Channel Focus"}
+]

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.0.0/schema.json",
+  "pageOrder": [
+    "37bdcea38ca92b40603d",
+    "tooltip_page_01",
+    "contributor_insight_02",
+    "campaign_performance_03",
+    "rfm_analysis_04",
+    "clv_churn_05",
+    "cohort_retention_06",
+    "market_basket_07",
+    "whatif_goalseek_08",
+    "advanced_anomalies_09"
+  ],
+  "activePageName": "37bdcea38ca92b40603d"
+}

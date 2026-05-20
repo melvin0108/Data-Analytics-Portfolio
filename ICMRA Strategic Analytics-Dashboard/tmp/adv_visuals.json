@@ -1,0 +1,6 @@
+[
+  {"visual_type": "clusteredColumnChart", "name": "col_pledge_vs_paid_channel", "x": 90, "y": 80, "width": 700, "height": 380, "title": "Pledge vs Paid by Channel Focus"},
+  {"visual_type": "clusteredBarChart", "name": "bar_anomaly_segment", "x": 820, "y": 80, "width": 700, "height": 380, "title": "Avg Gift Size by Account Segment"},
+  {"visual_type": "scatterChart", "name": "scatter_pledge_paid_dist", "x": 1550, "y": 80, "width": 220, "height": 380, "title": "Gift Distribution"},
+  {"visual_type": "tableEx", "name": "tbl_anomaly_detail", "x": 90, "y": 490, "width": 1680, "height": 380, "title": "Outlier Detail High-Value Pledges"}
+]

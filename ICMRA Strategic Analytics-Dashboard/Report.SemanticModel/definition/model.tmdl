@@ -1,0 +1,34 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-AU
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["MCP-PBIModeling","DevMode"]
+
+ref table Account
+ref table DateTableTemplate_111f71e3-e900-4033-919b-7d5e55396a3b
+ref table LocalDateTable_32443eb7-7270-4a23-9e06-7cd0556f3c74
+ref table Contribution
+ref table 'MRA Campaign'
+ref table LocalDateTable_11f58f18-8203-4a03-b3b6-da3f2e28754c
+ref table LocalDateTable_637435c9-585e-46f0-b218-315880bcd8e1
+ref table 'Medical Research Grant Appeal'
+ref table LocalDateTable_1981841a-ed75-4b85-bc01-a8f34aac5d7b
+ref table LocalDateTable_d62b9693-89ee-42a1-ad18-d3b7a106c1b9
+ref table Dim_Date
+ref table _Measures
+ref table RFM
+ref table Dim_RankRFM
+ref table 'Growth Rate Param'
+ref table 'Goal Target Param'
+ref table 'Top N Param'
+ref table 'Select Measure'
+ref table BasketPairs
+
+ref cultureInfo en-US
+

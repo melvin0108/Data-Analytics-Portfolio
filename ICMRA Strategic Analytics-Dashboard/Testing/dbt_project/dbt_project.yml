@@ -1,0 +1,75 @@
+name: 'icmra_analytics'
+version: '1.0.0'
+
+config-version: 2
+
+# ── Profile (Snowflake connection) ──────────────────────────────────
+# Matches the profile name in profiles.yml
+profile: 'icmra_analytics'
+
+# ── Model Configuration ─────────────────────────────────────────────
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# ── Default Model Settings ──────────────────────────────────────────
+models:
+  icmra_analytics:
+    +database: ICMRA_DB
+
+    # Staging layer: ephemeral views (fast rebuild, no storage cost)
+    staging:
+      +schema: STAGING
+      +materialized: table
+      +tags: ['staging']
+
+    # Intermediate layer: materialized tables (used by multiple marts)
+    intermediate:
+      +schema: STAGING
+      +materialized: table
+      +tags: ['intermediate']
+
+    # Mart layer: the star schema Power BI reads from
+    marts:
+      +schema: ANALYTICS
+      +materialized: table
+      +tags: ['marts']
+
+    # Reporting layer: pre-aggregated for executive dashboards
+    reporting:
+      +schema: REPORTING
+      +materialized: table
+      +tags: ['reporting']
+
+# ── Seed Configuration ──────────────────────────────────────────────
+seeds:
+  icmra_analytics:
+    +schema: ANALYTICS
+    rfm_segment_mapping:
+      +column_types:
+        rfm_score: VARCHAR
+        segment: VARCHAR
+        description: VARCHAR
+        action: VARCHAR
+
+# ── Snapshot Configuration ──────────────────────────────────────────
+snapshots:
+  +target_schema: ANALYTICS
+  +strategy: timestamp
+  +updated_at: _loaded_at
+  +unique_key: pledge_id
+
+# ── dbt Variables ───────────────────────────────────────────────────
+vars:
+  start_date: '2019-01-01'
+  end_date: '2025-12-31'
+  rfm_n_tile: 5           # Quintile scoring
+  churn_inactive_months: 12  # No payment in 12 months = churned

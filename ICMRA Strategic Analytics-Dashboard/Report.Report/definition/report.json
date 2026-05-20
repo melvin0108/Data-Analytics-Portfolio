@@ -1,0 +1,143 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.2.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "Fluent2-CY26SU04",
+      "reportVersionAtImport": {
+        "visual": "2.8.0",
+        "report": "3.2.0",
+        "page": "2.3.1"
+      },
+      "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "ICMRA_Dark_Blue_Theme_v29526246333736859.json",
+      "reportVersionAtImport": {
+        "visual": "2.8.0",
+        "report": "3.2.0",
+        "page": "2.3.1"
+      },
+      "type": "RegisteredResources"
+    }
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "Fluent2-CY26SU04",
+          "path": "BaseThemes/Fluent2-CY26SU04.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "_Pngtree_cartoon_line_chart_pn24783118933025527.png",
+          "path": "_Pngtree_cartoon_line_chart_pn24783118933025527.png",
+          "type": "Image"
+        },
+        {
+          "name": "_Pngtree_vector_bank_icon_42768002589059028855.png",
+          "path": "_Pngtree_vector_bank_icon_42768002589059028855.png",
+          "type": "Image"
+        },
+        {
+          "name": "analytics7401536861527486.png",
+          "path": "analytics7401536861527486.png",
+          "type": "Image"
+        },
+        {
+          "name": "analytics9897618684557661.png",
+          "path": "analytics9897618684557661.png",
+          "type": "Image"
+        },
+        {
+          "name": "artificial-intelligence48744033366257267.png",
+          "path": "artificial-intelligence48744033366257267.png",
+          "type": "Image"
+        },
+        {
+          "name": "automation2972071647812199.png",
+          "path": "automation2972071647812199.png",
+          "type": "Image"
+        },
+        {
+          "name": "business-report2562823672914898.png",
+          "path": "business-report2562823672914898.png",
+          "type": "Image"
+        },
+        {
+          "name": "Gemini_Generated_Image_ti94uwt20559316001651629.png",
+          "path": "Gemini_Generated_Image_ti94uwt20559316001651629.png",
+          "type": "Image"
+        },
+        {
+          "name": "ICMRA_Dark_Blue_Theme_v29526246333736859.json",
+          "path": "ICMRA_Dark_Blue_Theme_v29526246333736859.json",
+          "type": "CustomTheme"
+        },
+        {
+          "name": "machine-learning9143723099090592.png",
+          "path": "machine-learning9143723099090592.png",
+          "type": "Image"
+        },
+        {
+          "name": "statistics5936621241434634.png",
+          "path": "statistics5936621241434634.png",
+          "type": "Image"
+        },
+        {
+          "name": "technology6967461914758584.png",
+          "path": "technology6967461914758584.png",
+          "type": "Image"
+        },
+        {
+          "name": "user-experience5780677435958151.png",
+          "path": "user-experience5780677435958151.png",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  }
+}

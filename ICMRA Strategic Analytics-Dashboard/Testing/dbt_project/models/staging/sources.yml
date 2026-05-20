@@ -1,0 +1,93 @@
+version: 2
+
+sources:
+  - name: icmra_raw
+    database: ICMRA_DB
+    schema: RAW
+    loader: Snowflake COPY INTO
+    loaded_at_field: _loaded_at
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 72, period: hour}
+
+    tables:
+      - name: raw_medical_research_grant_appeal
+        description: "Fact table — pledge/payment transactions from ICMRA fundraising appeals (2019-2025)"
+        columns:
+          - name: pledge_id
+            description: "Unique pledge identifier (primary key)"
+            tests: [unique, not_null]
+          - name: account_id
+            description: "FK to Account dimension"
+            tests: [not_null]
+          - name: campaign_id
+            description: "FK to Campaign dimension"
+            tests: [not_null]
+          - name: cont_type_id
+            description: "FK to Contribution type dimension"
+            tests: [not_null]
+          - name: referral_source
+            description: "Referral channel source"
+          - name: appeal_close_date
+            description: "Date the appeal period closed"
+            tests: [not_null]
+          - name: payment_date
+            description: "Date payment was received (NULL = pledged but unpaid)"
+          - name: pledge_pay_amount
+            description: "Pledge or payment amount in USD"
+            tests:
+              - not_null
+              - dbt_expectations.expect_column_values_to_be_between:
+                  min_value: 0
+
+      - name: raw_mra_campaign
+        description: "Campaign master data with targets, budgets, channels, and dates"
+        columns:
+          - name: campaign_code
+            description: "Unique campaign code (primary key)"
+            tests: [unique, not_null]
+          - name: campaign_name
+            tests: [not_null]
+          - name: research_area
+          - name: campaign_type
+          - name: appeal_category
+          - name: priority_level
+            tests:
+              - accepted_values:
+                  values: ['High', 'Medium', 'Low', 'Critical']
+          - name: target_amount
+            tests: [not_null]
+          - name: campaign_budget
+            tests: [not_null]
+          - name: channel_focus
+          - name: campaign_start_date
+          - name: campaign_end_date
+
+      - name: raw_contribution
+        description: "Contribution type lookup — maps type codes to names and groups"
+        columns:
+          - name: contribution_id
+            description: "Contribution type code (primary key)"
+            tests: [unique, not_null]
+          - name: contribution_type
+            tests: [not_null]
+          - name: contribution_group
+            tests: [not_null]
+
+      - name: raw_account
+        description: "Contributor account master data with demographics and capacity"
+        columns:
+          - name: account_code
+            description: "Unique account code (primary key)"
+            tests: [unique, not_null]
+          - name: account_name
+            tests: [not_null]
+          - name: contact_person
+          - name: account_type
+          - name: country
+          - name: region
+          - name: account_segment
+          - name: preferred_referral_source
+          - name: funding_capacity_band
+          - name: account_since
+          - name: organisation_size_band

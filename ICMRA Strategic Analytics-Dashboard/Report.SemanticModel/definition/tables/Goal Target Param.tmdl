@@ -1,0 +1,11 @@
+table 'Goal Target Param'
+	lineageTag: 251c95e6-0bc0-4b56-ac11-eb39919c7974
+
+	column 'Goal Target'
+		lineageTag: 33c3f182-0cd7-4f7e-9547-5c68579b88a1
+		sourceColumn: [Value]
+
+	partition 'Goal Target Param' = calculated
+		mode: import
+		source = GENERATESERIES(0, 100000000, 1000000)
+

@@ -1,0 +1,119 @@
+table Account
+	lineageTag: 49c45115-e4f7-49c6-8a12-64e0b9683259
+
+	column 'Account Code'
+		dataType: string
+		lineageTag: d8d63779-3595-4c69-97e1-66335b0bf408
+		summarizeBy: none
+		sourceColumn: Account Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account Name'
+		dataType: string
+		lineageTag: 46e7461e-1c6d-4946-8a0f-de75d70ab207
+		summarizeBy: none
+		sourceColumn: Account Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Contact Person'
+		dataType: string
+		lineageTag: 1cc703e2-7e00-465c-9391-d86101d9a071
+		summarizeBy: none
+		sourceColumn: Contact Person
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account Type'
+		dataType: string
+		lineageTag: 7fa5efe3-4c15-414d-92a7-998fd7477caf
+		summarizeBy: none
+		sourceColumn: Account Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: f32360b3-2899-4bf2-a2f4-86a15fdba2d6
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 8448ad73-e3a7-4d06-8d07-8fdb5e2ed875
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account Segment'
+		dataType: string
+		lineageTag: cb02b985-83af-405b-bacd-4b22490ba040
+		summarizeBy: none
+		sourceColumn: Account Segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Preferred Referral Source'
+		dataType: string
+		lineageTag: 2dee4734-978d-4362-aa83-130854c3da48
+		summarizeBy: none
+		sourceColumn: Preferred Referral Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Funding Capacity Band'
+		dataType: string
+		lineageTag: 07a5b3e8-8427-46d8-bba9-39998656d76a
+		summarizeBy: none
+		sourceColumn: Funding Capacity Band
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account Since'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 90d42ef9-5149-4de9-9512-a408c0848e17
+		summarizeBy: none
+		sourceColumn: Account Since
+
+		variation Variation
+			isDefault
+			relationship: a37ac810-9308-4b7b-80c3-486d617ee2bc
+			defaultHierarchy: LocalDateTable_32443eb7-7270-4a23-9e06-7cd0556f3c74.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Organisation Size Band'
+		dataType: string
+		lineageTag: 760680e4-eb63-4df2-b31a-ee305813515a
+		summarizeBy: none
+		sourceColumn: Organisation Size Band
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Churn Flag' =
+			VAR LastPay = CALCULATE(MAX('Medical Research Grant Appeal'[Payment Date]), RELATEDTABLE('Medical Research Grant Appeal'))
+			RETURN IF(ISBLANK(LastPay), 1, IF(DATEDIFF(LastPay, DATE(2025,12,31), DAY) > 365, 1, 0))
+		dataType: int64
+		lineageTag: c8d2e805-3a32-4297-8896-310333c7dc2e
+
+	partition Account = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("D:\BI_Report\ICMRA Dataset 2019-2025.xlsx"), null, true),
+				    Account_Sheet = Source{[Item="Account",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Account_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Account Code", type text}, {"Account Name", type text}, {"Contact Person", type text}, {"Account Type", type text}, {"Country", type text}, {"Region", type text}, {"Account Segment", type text}, {"Preferred Referral Source", type text}, {"Funding Capacity Band", type text}, {"Account Since", type datetime}, {"Organisation Size Band", type text}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type","Househld","Household",Replacer.ReplaceText,{"Account Type"})
+				in
+				    #"Replaced Value"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

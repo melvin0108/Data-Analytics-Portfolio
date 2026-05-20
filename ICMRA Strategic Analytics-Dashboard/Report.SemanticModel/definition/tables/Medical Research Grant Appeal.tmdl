@@ -1,0 +1,138 @@
+table 'Medical Research Grant Appeal'
+	lineageTag: ab47706b-fdfc-409f-9d2d-f648a0e47f7e
+
+	column 'Pledge ID'
+		dataType: string
+		lineageTag: 339f7999-8c61-4f4a-965b-c2c7006ff1ed
+		summarizeBy: none
+		sourceColumn: Pledge ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account ID'
+		dataType: string
+		lineageTag: 5018456f-8dee-40dc-a346-28cdbfb7ed13
+		summarizeBy: none
+		sourceColumn: Account ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Campaign ID'
+		dataType: string
+		lineageTag: c7af7dbd-0cd6-4402-aacf-dbbf1ece568e
+		summarizeBy: none
+		sourceColumn: Campaign ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cont Type ID'
+		dataType: string
+		lineageTag: 734973bc-4dfb-4847-a519-c72bf171208b
+		summarizeBy: none
+		sourceColumn: Cont Type ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Referral Source'
+		dataType: string
+		lineageTag: 260275eb-cbe7-4d83-9ae9-8f92443d038c
+		summarizeBy: none
+		sourceColumn: Referral Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Appeal Close Date'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: b7fdfdbf-8cb4-4639-9184-c50d013926e8
+		summarizeBy: none
+		sourceColumn: Appeal Close Date
+
+		variation Variation
+			isDefault
+			relationship: e09290f0-baaf-4f59-811c-24f16bde5529
+			defaultHierarchy: LocalDateTable_1981841a-ed75-4b85-bc01-a8f34aac5d7b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payment Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7773b437-787b-455b-b438-4afceedbf8a5
+		summarizeBy: none
+		sourceColumn: Payment Date
+
+		variation Variation
+			isDefault
+			relationship: 99599344-88de-488f-a11b-6241a26d77a6
+			defaultHierarchy: LocalDateTable_d62b9693-89ee-42a1-ad18-d3b7a106c1b9.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pledge-Pay Amount'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7f10addd-a55a-4191-bfc8-30f040eaefd9
+		summarizeBy: sum
+		sourceColumn: Pledge-Pay Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payment Status' = IF(ISBLANK('Medical Research Grant Appeal'[Payment Date]), "Pledged-Unpaid", "Paid")
+		lineageTag: 8c74885f-310a-4c2b-bad0-a27a5b4a239b
+
+	column 'First Payment Date' =
+			CALCULATE(
+			    MIN('Medical Research Grant Appeal'[Payment Date]),
+			    ALLEXCEPT('Medical Research Grant Appeal', 'Medical Research Grant Appeal'[Account ID])
+			)
+		lineageTag: 78039145-d3ca-4df6-9b72-c0c124d5fdb2
+
+	column 'First Payment Month' = EOMONTH('Medical Research Grant Appeal'[First Payment Date], -1) + 1
+		lineageTag: c4db6474-935b-4594-8517-8ac257288838
+
+	column 'Payment Month' =
+			IF(
+			    NOT ISBLANK('Medical Research Grant Appeal'[Payment Date]),
+			    EOMONTH('Medical Research Grant Appeal'[Payment Date], -1) + 1,
+			    BLANK()
+			)
+		lineageTag: 7b495f10-2815-45ac-bdd1-d89729e8264e
+
+	column 'Month Offset' =
+			IF(
+			    NOT ISBLANK('Medical Research Grant Appeal'[Payment Month]),
+			    DATEDIFF('Medical Research Grant Appeal'[First Payment Month], 'Medical Research Grant Appeal'[Payment Month], MONTH),
+			    BLANK()
+			)
+		lineageTag: 09f4cac5-80ef-433a-beb6-e2b05356985e
+
+	column 'Days to Pay' =
+			IF(
+			    NOT ISBLANK('Medical Research Grant Appeal'[Payment Date]),
+			    DATEDIFF('Medical Research Grant Appeal'[Appeal Close Date], 'Medical Research Grant Appeal'[Payment Date], DAY),
+			    BLANK()
+			)
+		lineageTag: 2c02c304-14d5-477f-b529-a3c8003ce1e6
+
+	partition 'Medical Research Grant Appeal' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("D:\BI_Report\ICMRA Dataset 2019-2025.xlsx"), null, true),
+				    #"Medical Research Grant Appeal_Sheet" = Source{[Item="Medical Research Grant Appeal",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Medical Research Grant Appeal_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Pledge ID", type text}, {"Account ID", type text}, {"Campaign ID", type text}, {"Cont Type ID", type text}, {"Referral Source", type text}, {"Appeal Close Date", type datetime}, {"Payment Date", type datetime}, {"Pledge-Pay Amount", Int64.Type}}),
+				    #"Removed Duplicates" = Table.Distinct(#"Changed Type"),
+				    #"Replaced Value" = Table.ReplaceValue(#"Removed Duplicates","ACCH148","ACC-H-148",Replacer.ReplaceText,{"Account ID"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","ACCM492","ACC-M-492",Replacer.ReplaceText,{"Account ID"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","ACCT067","ACC-T-067",Replacer.ReplaceText,{"Account ID"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","ACCC475","ACC-C-475",Replacer.ReplaceText,{"Account ID"}),
+				    #"Replaced Value4" = Table.ReplaceValue(#"Replaced Value3","ACCT285","ACC-T-285",Replacer.ReplaceText,{"Account ID"})
+				in
+				    #"Replaced Value4"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

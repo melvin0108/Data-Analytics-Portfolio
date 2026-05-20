@@ -1,0 +1,117 @@
+rfm_score,segment,description,action
+555,Champions,Top-tier donors with recent frequent high-value contributions,Reward and retain with exclusive engagement opportunities
+554,Champions,Top-tier donors with recent frequent high-value contributions,Reward and retain with exclusive engagement opportunities
+545,Champions,Top-tier donors with recent frequent high-value contributions,Reward and retain with exclusive engagement opportunities
+544,Loyal Customers,Consistent supporters with strong giving patterns,Encourage upgrades and referral programs
+455,Loyal Customers,Consistent supporters with strong giving patterns,Encourage upgrades and referral programs
+454,Loyal Customers,Consistent supporters with strong giving patterns,Encourage upgrades and referral programs
+445,Loyal Customers,Consistent supporters with strong giving patterns,Encourage upgrades and referral programs
+444,Promising,Recent contributors showing potential for growth,Nurture with personalized stewardship
+355,Promising,Recent contributors showing potential for growth,Nurture with personalized stewardship
+354,Promising,Recent contributors showing potential for growth,Nurture with personalized stewardship
+345,Promising,Recent contributors showing potential for growth,Nurture with personalized stewardship
+344,New Donors,First-time or recent contributors with limited history,Welcome series and onboarding engagement
+255,New Donors,First-time or recent contributors with limited history,Welcome series and onboarding engagement
+254,New Donors,First-time or recent contributors with limited history,Welcome series and onboarding engagement
+245,New Donors,First-time or recent contributors with limited history,Welcome series and onboarding engagement
+244,Potential Loyalists,Contributors who could become loyal with right engagement,Targeted re-engagement campaigns
+155,Potential Loyalists,Contributors who could become loyal with right engagement,Targeted re-engagement campaigns
+154,Potential Loyalists,Contributors who could become loyal with right engagement,Targeted re-engagement campaigns
+145,About to Sleep,Previously active donors showing declining engagement,Win-back campaign with impact stories
+144,About to Sleep,Previously active donors showing declining engagement,Win-back campaign with impact stories
+135,Need Attention,Moderate-value donors at risk of lapsing,Personalized outreach and impact reporting
+134,Need Attention,Moderate-value donors at risk of lapsing,Personalized outreach and impact reporting
+125,At Risk,High-value donors who have stopped giving,Urgent re-engagement with senior leadership contact
+115,At Risk,High-value donors who have stopped giving,Urgent re-engagement with senior leadership contact
+124,Cannot Lose Them,Premium donors with significant lifetime value near churn,Executive-level stewardship and exclusive invitations
+114,Cannot Lose Them,Premium donors with significant lifetime value near churn,Executive-level stewardship and exclusive invitations
+511,Hibernating,Long-inactive donors with very low engagement,Low-cost reactivation through digital channels
+411,Hibernating,Long-inactive donors with very low engagement,Low-cost reactivation through digital channels
+311,Hibernating,Long-inactive donors with very low engagement,Low-cost reactivation through digital channels
+211,Lost,Completely inactive donors with minimal engagement,Archive or minimal reactivation attempt
+111,Lost,Completely inactive donors with minimal engagement,Archive or minimal reactivation attempt
+512,At Risk,Previously moderate donors showing decline,Re-engagement with targeted appeals
+412,At Risk,Previously moderate donors showing decline,Re-engagement with targeted appeals
+312,About to Sleep,Previously engaged donors becoming dormant,Win-back with impact-focused messaging
+212,About to Sleep,Previously engaged donors becoming dormant,Win-back with impact-focused messaging
+513,Need Attention,Recent moderate-value donors requiring stewardship,Personalized outreach and recognition
+413,Need Attention,Recent moderate-value donors requiring stewardship,Personalized outreach and recognition
+313,Need Attention,Recent moderate-value donors requiring stewardship,Personalized outreach and recognition
+213,Cannot Lose Them,Previously high-value donors at risk of churning,Priority re-engagement program
+113,Cannot Lose Them,Previously high-value donors at risk of churning,Priority re-engagement program
+515,Promising,Recent high-value donors with growth potential,Accelerated stewardship pathway
+415,Promising,Recent high-value donors with growth potential,Accelerated stewardship pathway
+315,New Donors,Recent contributors building their relationship,Structured onboarding program
+215,New Donors,Recent contributors building their relationship,Structured onboarding program
+115,At Risk,High-value donors who have stopped giving,Urgent re-engagement with senior leadership contact
+525,Promising,Frequent recent contributors with growing value,Reward frequency with recognition
+425,Loyal Customers,Frequent supporters with established patterns,Maintain engagement and seek upgrades
+325,Promising,Moderate frequency recent contributors,Nurture towards higher engagement
+225,New Donors,Low-frequency recent contributors,Encourage repeat giving
+535,Loyal Customers,High-frequency recent contributors,Recognize loyalty and seek referrals
+435,Loyal Customers,Frequent recent supporters,Strengthen relationship
+335,Promising,Growing frequency moderate-value donors,Targeted growth campaigns
+235,Potential Loyalists,Moderate frequency showing loyalty potential,Personalized engagement strategy
+543,Champions,High-value frequent donors,Exclusive access and recognition
+542,Loyal Customers,Strong frequency and value profile,Upgrade opportunities
+541,Loyal Customers,Consistent high-frequency supporters,Reward loyalty
+534,Champions,Frequent high-value contributors,Platinum-tier stewardship
+533,Loyal Customers,Strong frequency and recent activity,Maintain with personalized touch
+532,Loyal Customers,Regular contributors with moderate value,Encourage value growth
+531,Promising,Frequent recent moderate-value donors,Growth-focused engagement
+524,Promising,Recent frequent contributors,Nurture towards loyalty
+523,New Donors,Recent moderate-frequency donors,Onboarding and education
+522,New Donors,Recent contributors with basic engagement,Welcome and first-repeat encouragement
+521,New Donors,New contributors with minimal history,Basic welcome series
+514,Promising,Recent high-value single donors,Convert to recurring giving
+414,Promising,Recent moderate-frequency donors,Develop giving habits
+314,New Donors,Recent low-frequency contributors,Build engagement momentum
+214,New Donors,New basic-level contributors,Welcome and initial stewardship
+453,Loyal Customers,Strong value and frequency,Upgrade and referral opportunities
+452,Loyal Customers,Good frequency moderate-value donors,Sustain and grow relationship
+451,Loyal Customers,Established moderate-value supporters,Personalized stewardship
+443,Loyal Customers,Well-rounded supporter profile,Encourage campaign diversity
+442,Promising,Decent frequency and value metrics,Nurture towards champion status
+441,Promising,Moderate engagement across all dimensions,Targeted growth plan
+433,Loyal Customers,Consistent moderate-level supporter,Steady engagement maintenance
+432,Promising,Growing supporter showing potential,Accelerate engagement
+431,Promising,Developing contributor profile,Strategic nurturing
+423,Promising,Moderate recent frequency,Convert to loyal status
+422,New Donors,Recent moderate-frequency new donor,Second gift encouragement
+421,New Donors,Recent basic contributor,Foundation building
+353,Loyal Customers,Decent value and frequency,Stabilize and grow
+352,Promising,Moderate recent engagement,Growth pathway engagement
+351,Promising,Recent moderate-value donor,Personalized stewardship
+343,Promising,Developing supporter profile,Engagement deepening
+342,Promising,Moderate recent activity,Value-building strategy
+341,New Donors,Recent entry-level contributor,Onboarding program
+333,Promising,Mid-range supporter across all metrics,Targeted development
+332,Promising,Moderate engagement baseline,Growth-focused campaigns
+331,New Donors,Recent basic-level donor,Welcome and cultivation
+323,New Donors,Recent low-frequency contributor,Build giving habits
+322,New Donors,New contributor with limited data,Initial engagement
+321,New Donors,Brand new donor,Welcome series
+253,Potential Loyalists,Moderate value with some history,Re-engage with targeted appeals
+252,Potential Loyalists,Some frequency history present,Win-back with recognition
+251,About to Sleep,Declining moderate-value donor,Impact-focused re-engagement
+243,Potential Loyalists,Moderate engagement showing decline,Personalized outreach
+242,About to Sleep,Previously moderate engagement,Win-back campaign
+241,About to Sleep,Fading contributor,Re-engagement with urgency
+233,About to Sleep,Declining moderate supporter,Impact reporting
+232,About to Sleep,Fading moderate-value donor,Win-back messaging
+231,About to Sleep,Declining engagement across metrics,Urgent re-engagement
+223,About to Sleep,Limited activity declining,Focused win-back attempt
+222,Hibernating,Low engagement declining,Survey and reactivation
+221,Hibernating,Minimal activity archive status,Digital reactivation
+153,Need Attention,Moderate-value donor lapsing,Senior leadership outreach
+152,At Risk,Previously moderate value declining,Urgent re-engagement
+151,Cannot Lose Them,High-value donor at severe churn risk,Executive intervention
+143,Need Attention,Declining moderate supporter,Personalized re-engagement
+142,At Risk,Lapsing previously engaged donor,Win-back with urgency
+141,Cannot Lose Them,Previously strong donor fading,Priority stewardship
+133,Need Attention,Low-value declining supporter,Targeted appeal
+132,At Risk,Weak engagement at risk of loss,Re-engagement attempt
+131,Cannot Lose Them,Previously moderate donor urgent risk,Executive outreach
+123,Cannot Lose Them,Declining high-value donor,Priority recovery program
+122,At Risk,Weak declining engagement,Last-chance re-engagement
+121,At Risk,Very low engagement at risk,Final reactivation attempt

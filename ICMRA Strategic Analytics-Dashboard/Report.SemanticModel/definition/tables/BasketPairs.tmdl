@@ -1,0 +1,51 @@
+table BasketPairs
+	lineageTag: 19e0eee7-51df-4627-ac1c-a359ae71243b
+
+	column AccountID
+		lineageTag: 29a78de1-e79e-41d5-b4cc-dfb5c3db09db
+		isNameInferred
+		sourceColumn: [AccountID]
+
+	column Antecedent
+		lineageTag: 15b4c8f0-61e7-4ba2-8c5f-924a385c177d
+		isNameInferred
+		sourceColumn: [Antecedent]
+
+	column Consequent
+		lineageTag: 8a55e366-c31d-4102-b665-4e3fcb4e7bd7
+		isNameInferred
+		sourceColumn: [Consequent]
+
+	column 'Pair Label' = BasketPairs[Antecedent] & " → " & BasketPairs[Consequent]
+		lineageTag: 75eeeca2-7f27-4f03-bc69-1677a97e1cbc
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition BasketPairs = calculated
+		mode: import
+		source =
+				VAR PaidFact =
+				    CALCULATETABLE(
+				        SUMMARIZE(
+				            'Medical Research Grant Appeal',
+				            'Medical Research Grant Appeal'[Account ID],
+				            'MRA Campaign'[Research Area]
+				        ),
+				        'Medical Research Grant Appeal'[Payment Status] = "Paid"
+				    )
+				VAR L = SELECTCOLUMNS(PaidFact, "AccID", 'Medical Research Grant Appeal'[Account ID], "Ant", 'MRA Campaign'[Research Area])
+				VAR R = SELECTCOLUMNS(PaidFact, "AccID", 'Medical Research Grant Appeal'[Account ID], "Con", 'MRA Campaign'[Research Area])
+				VAR Pairs =
+				    FILTER(
+				        NATURALINNERJOIN(L, SELECTCOLUMNS(R, "AccID", [AccID], "Con", [Con])),
+				        [Ant] < [Con]
+				    )
+				RETURN
+				    SELECTCOLUMNS(
+				        Pairs,
+				        "AccountID", [AccID],
+				        "Antecedent", [Ant],
+				        "Consequent", [Con]
+				    )
+

@@ -1,0 +1,28 @@
+table 'Select Measure'
+	lineageTag: 32690b39-f514-41a0-b872-19202788e709
+
+	column 'Select Measure'
+		lineageTag: 1edc3ddf-73a7-48f8-ba64-7e0fdfa6521e
+		isNameInferred
+		sourceColumn: [Select Measure]
+		sortByColumn: 'Select Measure Order'
+
+	column 'Select Measure Order'
+		isHidden
+		lineageTag: 0393641b-238d-4839-97ac-121906f85a8c
+		isNameInferred
+		sourceColumn: [Select Measure Order]
+
+	partition 'Select Measure' = calculated
+		mode: import
+		source =
+				DATATABLE(
+				    "Select Measure", STRING,
+				    "Select Measure Order", INTEGER,
+				    {
+				        {"Total Paid", 0},
+				        {"Total Pledged", 1},
+				        {"Paid Pledges", 2}
+				    }
+				)
+

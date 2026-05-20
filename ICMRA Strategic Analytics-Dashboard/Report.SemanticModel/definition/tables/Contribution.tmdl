@@ -1,0 +1,44 @@
+table Contribution
+	lineageTag: 93e9d2dd-b730-4839-9f94-11d4ccf2853f
+
+	column Contribution_ID
+		dataType: string
+		lineageTag: ab80f9c8-1ca0-41d7-bcc4-16cb2f428ed1
+		summarizeBy: none
+		sourceColumn: Contribution_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Contribution Type'
+		dataType: string
+		lineageTag: 02d5eee3-d336-4661-9b58-8e222d44bf62
+		summarizeBy: none
+		sourceColumn: Contribution Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Contribution Group'
+		dataType: string
+		lineageTag: 773d09d4-ef5b-469f-acf7-2b60be9d7798
+		summarizeBy: none
+		sourceColumn: Contribution Group
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Contribution = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("D:\BI_Report\ICMRA Dataset 2019-2025.xlsx"), null, true),
+				    Contribution_Sheet = Source{[Item="Contribution",Kind="Sheet"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(Contribution_Sheet,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}}),
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Changed Type", [PromoteAllScalars=true]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers",{{"Contribution_ID", type text}, {"Contribution Type", type text}, {"Contribution Group", type text}}),
+				    #"Removed Bottom Rows" = Table.RemoveLastN(#"Changed Type1",21)
+				in
+				    #"Removed Bottom Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

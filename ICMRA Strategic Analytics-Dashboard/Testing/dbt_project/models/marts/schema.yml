@@ -1,0 +1,217 @@
+version: 2
+
+# ═══════════════════════════════════════════════════════════════════
+# Mart Models — Documentation, Tests & Relationships
+# ═══════════════════════════════════════════════════════════════════
+
+models:
+  # ── Dimensions ──────────────────────────────────────────────────
+
+  - name: dim_date
+    description: "Date dimension spanning 2019-01-01 to 2025-12-31. Includes calendar attributes, fiscal year, ISO week, and descriptive labels. Marked as date table in Power BI."
+    columns:
+      - name: date
+        description: "Date key (DATE) — primary key, marked as PBI date table column"
+        tests: [unique, not_null]
+      - name: year
+        tests: [not_null]
+      - name: month_num
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 1
+              max_value: 12
+      - name: year_month
+        description: "YYYY-MM string used for trend chart axis labels"
+        tests: [not_null]
+      - name: fiscal_year
+        description: "Fiscal year (starts July 1)"
+
+  - name: dim_account
+    description: "Account dimension with pre-computed churn flag and activity metrics. Joined 1:1 from stg_accounts + int_account_activity."
+    columns:
+      - name: account_code
+        description: "Natural key — unique account identifier"
+        tests: [unique, not_null]
+      - name: account_key
+        description: "Surrogate key (MD5 hash)"
+        tests: [unique, not_null]
+      - name: churn_flag
+        description: "0 = Active, 1 = Churned (>12 months since last payment)"
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+      - name: account_status
+        tests:
+          - accepted_values:
+              values: ['Active', 'Churned']
+      - name: country
+        description: "Country of residence"
+      - name: region
+        description: "Geographic region"
+      - name: funding_capacity_band
+        description: "Estimated giving capacity range"
+
+  - name: dim_campaign
+    description: "Campaign dimension with pre-computed ROI, target achievement, and conversion rates."
+    columns:
+      - name: campaign_code
+        tests: [unique, not_null]
+      - name: target_achievement_pct
+        description: "actual_total_paid / target_amount"
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+      - name: roi
+        description: "(total_paid - campaign_budget) / campaign_budget"
+      - name: pledge_conversion_pct
+        description: "paid_pledges / total_pledges"
+
+  - name: dim_contribution
+    description: "Contribution type lookup — maps type codes to names and groups."
+    columns:
+      - name: contribution_id
+        tests: [unique, not_null]
+      - name: contribution_type
+        tests: [not_null]
+      - name: contribution_group
+        tests: [not_null]
+
+  # ── Fact ────────────────────────────────────────────────────────
+
+  - name: fct_pledges
+    description: "Central fact table containing all pledge/payment transactions with pre-computed calculated columns (payment status, cohort keys, days to pay). Incrementally loaded."
+    columns:
+      - name: pledge_id
+        description: "Primary key — unique pledge identifier"
+        tests: [unique, not_null]
+      - name: account_id
+        description: "FK → dim_account.account_code"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_account')
+              field: account_code
+      - name: campaign_id
+        description: "FK → dim_campaign.campaign_code"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_campaign')
+              field: campaign_code
+      - name: cont_type_id
+        description: "FK → dim_contribution.contribution_id"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_contribution')
+              field: contribution_id
+      - name: payment_date_key
+        description: "FK → dim_date.date (active relationship in Power BI)"
+        tests:
+          - relationships:
+              to: ref('dim_date')
+              field: date
+      - name: payment_status
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Paid', 'Pledged-Unpaid']
+      - name: pledge_pay_amount
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+      - name: month_offset
+        description: "Cohort column key — months since first payment (0 = cohort entry)"
+      - name: days_to_pay
+        description: "Business days between appeal close and payment receipt"
+
+  # ── Analytics Marts ─────────────────────────────────────────────
+
+  - name: rfm_analysis
+    description: "Per-account RFM segmentation with quintile scores (1-5) and segment labels. Replaces DAX calculated tables RFM + Dim_RankRFM."
+    columns:
+      - name: account_id
+        tests: [unique, not_null]
+      - name: rfm_score
+        description: "Composite R*100 + F*10 + M score (range 111-555)"
+      - name: segment
+        description: "Named RFM segment (Champions, Loyal, At Risk, etc.)"
+      - name: r_score
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 1
+              max_value: 5
+      - name: f_score
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 1
+              max_value: 5
+      - name: m_score
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 1
+              max_value: 5
+
+  - name: cohort_retention
+    description: "Pre-aggregated cohort retention matrix — one row per (first_payment_month × month_offset). Used directly in Power BI matrix visual."
+    columns:
+      - name: first_payment_month
+        description: "Cohort row key (month of first payment)"
+        tests: [not_null]
+      - name: month_offset
+        description: "Cohort column key (months since first payment)"
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+      - name: cohort_size
+        description: "Number of unique contributors in the cohort"
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 1
+      - name: retention_rate
+        description: "retained_accounts / cohort_size"
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 1
+
+  - name: basket_pairs
+    description: "Market basket association rules — support, confidence, and lift for all contribution type co-occurrence pairs."
+    columns:
+      - name: antecedent
+        tests: [not_null]
+      - name: consequent
+        tests: [not_null]
+      - name: pair_support
+        description: "P(A ∩ B) = pair_count / total_accounts"
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 1
+      - name: pair_confidence
+        description: "P(B|A) = pair_count / antecedent_accounts"
+      - name: pair_lift
+        description: "P(B|A) / P(B) — values >1 indicate positive association"
+
+  - name: clv_analysis
+    description: "Per-account Customer Lifetime Value with purchase frequency, average gift size, and engagement tier classification."
+    columns:
+      - name: account_id
+        tests: [unique, not_null]
+      - name: customer_lifetime_value
+        description: "CLV = avg_gift_size × purchase_frequency × lifetime_months"
+      - name: engagement_tier
+        tests:
+          - accepted_values:
+              values: ['Platinum', 'Gold', 'Silver', 'Bronze']
+      - name: churn_probability
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 1

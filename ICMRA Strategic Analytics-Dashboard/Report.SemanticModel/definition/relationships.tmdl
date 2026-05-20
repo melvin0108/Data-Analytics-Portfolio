@@ -1,0 +1,61 @@
+relationship a37ac810-9308-4b7b-80c3-486d617ee2bc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Account.'Account Since'
+	toColumn: LocalDateTable_32443eb7-7270-4a23-9e06-7cd0556f3c74.Date
+
+relationship ee16ddeb-b4d1-4091-93d0-d7b450a96383
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MRA Campaign'.'Campaign Start Date'
+	toColumn: LocalDateTable_11f58f18-8203-4a03-b3b6-da3f2e28754c.Date
+
+relationship bb4c37b9-e5a1-4b83-a636-2418050ba8e7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MRA Campaign'.'Campaign End Date'
+	toColumn: LocalDateTable_637435c9-585e-46f0-b218-315880bcd8e1.Date
+
+relationship e09290f0-baaf-4f59-811c-24f16bde5529
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Medical Research Grant Appeal'.'Appeal Close Date'
+	toColumn: LocalDateTable_1981841a-ed75-4b85-bc01-a8f34aac5d7b.Date
+
+relationship 99599344-88de-488f-a11b-6241a26d77a6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Medical Research Grant Appeal'.'Payment Date'
+	toColumn: LocalDateTable_d62b9693-89ee-42a1-ad18-d3b7a106c1b9.Date
+
+relationship AutoDetected_940b0efd-86b6-4c27-9953-858440539fcd
+	fromColumn: 'Medical Research Grant Appeal'.'Account ID'
+	toColumn: Account.'Account Code'
+
+relationship AutoDetected_e3c87ec3-2463-478b-9098-487065c42cd7
+	fromColumn: 'Medical Research Grant Appeal'.'Campaign ID'
+	toColumn: 'MRA Campaign'.'Campaign Code'
+
+relationship MRGA_PaymentDate_DimDate
+	fromColumn: 'Medical Research Grant Appeal'.'Payment Date'
+	toColumn: Dim_Date.Date
+
+relationship MRGA_AppealCloseDate_DimDate
+	isActive: false
+	fromColumn: 'Medical Research Grant Appeal'.'Appeal Close Date'
+	toColumn: Dim_Date.Date
+
+relationship MRGA_ContTypeID_Contribution
+	fromColumn: 'Medical Research Grant Appeal'.'Cont Type ID'
+	toColumn: Contribution.Contribution_ID
+
+relationship MRACampaign_StartDate_DimDate
+	isActive: false
+	fromColumn: 'MRA Campaign'.'Campaign Start Date'
+	toColumn: Dim_Date.Date
+
+relationship RFM_AccountID_Account
+	crossFilteringBehavior: bothDirections
+	fromColumn: RFM.'Account ID'
+	toColumn: Account.'Account Code'
+
+relationship RFM_Score_DimRankRFM
+	crossFilteringBehavior: bothDirections
+	fromColumn: RFM.'RFM Score'
+	toColumn: Dim_RankRFM.Scores
+

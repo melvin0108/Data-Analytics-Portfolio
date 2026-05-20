@@ -1,0 +1,11 @@
+table 'Top N Param'
+	lineageTag: cb3540f4-358f-4cd1-9314-b570b2a75e42
+
+	column 'Top N'
+		lineageTag: 7d129550-9669-4d09-8d77-137a9db4df2f
+		sourceColumn: [Value]
+
+	partition 'Top N Param' = calculated
+		mode: import
+		source = GENERATESERIES(5, 50, 5)
+

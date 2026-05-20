@@ -1,0 +1,120 @@
+table 'MRA Campaign'
+	lineageTag: 0fa469e8-e978-40c0-b582-9ac739c311fa
+
+	column 'Campaign Code'
+		dataType: string
+		lineageTag: 69eefeb9-c05e-44e7-9f9c-e601c1d0a37d
+		summarizeBy: none
+		sourceColumn: Campaign Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Campaign Name'
+		dataType: string
+		lineageTag: 2ac5a532-db38-4b5a-beb0-76d51aaea055
+		summarizeBy: none
+		sourceColumn: Campaign Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Research Area'
+		dataType: string
+		lineageTag: 7e1a5782-ff4b-4c99-adfe-a514c438ff97
+		summarizeBy: none
+		sourceColumn: Research Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Campaign Type'
+		dataType: string
+		lineageTag: b3bf7560-d100-4b0e-9a49-53ae30fa0b9e
+		summarizeBy: none
+		sourceColumn: Campaign Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Appeal Category'
+		dataType: string
+		lineageTag: 4e188a22-5ede-4926-a75e-6d37aa6b7383
+		summarizeBy: none
+		sourceColumn: Appeal Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Priority Level'
+		dataType: string
+		lineageTag: d2bec558-5c4b-4a21-b31c-76dbe9806030
+		summarizeBy: none
+		sourceColumn: Priority Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Target Amount'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2d10d42e-c273-47ea-9fb8-c7a955c357e6
+		summarizeBy: sum
+		sourceColumn: Target Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Campaign Budget'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c181f87-8684-409f-b1b2-e49ecd2356df
+		summarizeBy: sum
+		sourceColumn: Campaign Budget
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Channel Focus'
+		dataType: string
+		lineageTag: 3ee2ecbf-0864-44dd-be2d-7b8dc60ef3cc
+		summarizeBy: none
+		sourceColumn: Channel Focus
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Campaign Start Date'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 21c8eae8-3725-4a9e-a4ed-c0e84f4d0916
+		summarizeBy: none
+		sourceColumn: Campaign Start Date
+
+		variation Variation
+			isDefault
+			relationship: ee16ddeb-b4d1-4091-93d0-d7b450a96383
+			defaultHierarchy: LocalDateTable_11f58f18-8203-4a03-b3b6-da3f2e28754c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Campaign End Date'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: dd01b217-ca15-4d48-808c-eb805e2e95ea
+		summarizeBy: none
+		sourceColumn: Campaign End Date
+
+		variation Variation
+			isDefault
+			relationship: bb4c37b9-e5a1-4b83-a636-2418050ba8e7
+			defaultHierarchy: LocalDateTable_637435c9-585e-46f0-b218-315880bcd8e1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'MRA Campaign' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("D:\BI_Report\ICMRA Dataset 2019-2025.xlsx"), null, true),
+				    #"MRA Campaign_Sheet" = Source{[Item="MRA Campaign",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"MRA Campaign_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Campaign Code", type text}, {"Campaign Name", type text}, {"Research Area", type text}, {"Campaign Type", type text}, {"Appeal Category", type text}, {"Priority Level", type text}, {"Target Amount", Int64.Type}, {"Campaign Budget", Int64.Type}, {"Channel Focus", type text}, {"Campaign Start Date", type datetime}, {"Campaign End Date", type datetime}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

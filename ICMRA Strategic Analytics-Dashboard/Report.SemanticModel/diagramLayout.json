@@ -1,0 +1,190 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 1102,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 618.489409569184,
+            "y": 502.6368015079712
+          },
+          "nodeIndex": "Account",
+          "nodeLineageTag": "49c45115-e4f7-49c6-8a12-64e0b9683259",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1849.593998363441,
+            "y": 356.47194587683066
+          },
+          "nodeIndex": "BasketPairs",
+          "nodeLineageTag": "19e0eee7-51df-4627-ac1c-a359ae71243b",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1097.1098895322848,
+            "y": -50
+          },
+          "nodeIndex": "Contribution",
+          "nodeLineageTag": "93e9d2dd-b730-4839-9f94-11d4ccf2853f",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1043.2339500818339,
+            "y": 514.94389175366132
+          },
+          "nodeIndex": "Dim_Date",
+          "nodeLineageTag": "df2d7d80-0bd1-4479-8b83-585c52ecda36",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 453.21466036097019
+          },
+          "nodeIndex": "Dim_RankRFM",
+          "nodeLineageTag": "5ebd3db5-da07-4f61-bd4f-cd546b922f86",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2133.5939983634407,
+            "y": 332.47194587683066
+          },
+          "nodeIndex": "Goal Target Param",
+          "nodeLineageTag": "251c95e6-0bc0-4b56-ac11-eb39919c7974",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2417.5939983634407,
+            "y": 332.47194587683066
+          },
+          "nodeIndex": "Growth Rate Param",
+          "nodeLineageTag": "42e2576a-01e1-4c89-ba73-4e069e04f164",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 906.8510174840327,
+            "y": 157.75550520603724
+          },
+          "nodeIndex": "Medical Research Grant Appeal",
+          "nodeLineageTag": "ab47706b-fdfc-409f-9d2d-f648a0e47f7e",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1331.593998363441,
+            "y": 162.92634758825426
+          },
+          "nodeIndex": "MRA Campaign",
+          "nodeLineageTag": "0fa469e8-e978-40c0-b582-9ac739c311fa",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 334.23173694043732,
+            "y": 438.71474376597189
+          },
+          "nodeIndex": "RFM",
+          "nodeLineageTag": "e0f5d16d-0968-4067-b26c-d1e8236fa875",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2701.5939983634407,
+            "y": 368.47194587683066
+          },
+          "nodeIndex": "Select Measure",
+          "nodeLineageTag": "32690b39-f514-41a0-b872-19202788e709",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2985.5939983634407,
+            "y": 332.47194587683066
+          },
+          "nodeIndex": "Top N Param",
+          "nodeLineageTag": "cb3540f4-358f-4cd1-9314-b570b2a75e42",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1565.593998363441,
+            "y": 282.47194587683066
+          },
+          "nodeIndex": "_Measures",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

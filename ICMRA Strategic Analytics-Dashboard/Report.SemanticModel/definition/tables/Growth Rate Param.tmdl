@@ -1,0 +1,11 @@
+table 'Growth Rate Param'
+	lineageTag: 42e2576a-01e1-4c89-ba73-4e069e04f164
+
+	column 'Growth Rate'
+		lineageTag: 7825d90a-7393-4f12-ba63-1a75adf9196e
+		sourceColumn: [Value]
+
+	partition 'Growth Rate Param' = calculated
+		mode: import
+		source = GENERATESERIES(-0.20, 0.50, 0.01)
+

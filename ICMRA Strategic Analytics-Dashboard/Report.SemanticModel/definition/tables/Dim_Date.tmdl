@@ -1,0 +1,73 @@
+table Dim_Date
+	lineageTag: df2d7d80-0bd1-4479-8b83-585c52ecda36
+	dataCategory: Time
+
+	column Date
+		isUnique
+		lineageTag: a764574f-5a23-41d4-9390-63f75e4d0f78
+		isNameInferred
+		sourceColumn: [Date]
+
+	column Year
+		lineageTag: 16bad7a9-f08b-4e98-bfa9-4265ec5fa035
+		isNameInferred
+		sourceColumn: [Year]
+
+	column Quarter
+		lineageTag: f6731cba-f444-4ebe-b8ff-c35132ad23f9
+		isNameInferred
+		sourceColumn: [Quarter]
+
+	column 'Quarter Number'
+		lineageTag: feb38f14-329c-4af3-ac6a-bf957e5554d5
+		isNameInferred
+		sourceColumn: [Quarter Number]
+
+	column 'Month Number'
+		lineageTag: fa334ea0-8971-4282-908d-f9ebe5ed71d2
+		isNameInferred
+		sourceColumn: [Month Number]
+
+	column Month
+		lineageTag: 117f3092-3d16-47ef-85cb-de8bddaba77b
+		isNameInferred
+		sourceColumn: [Month]
+		sortByColumn: 'Month Number'
+
+	column 'Month Label'
+		lineageTag: b17cac6b-bd98-4d8a-8715-b6f35d5baf07
+		isNameInferred
+		sourceColumn: [Month Label]
+
+	column Year-Month
+		lineageTag: 0ae12b68-5899-4bb3-9211-b61a96bf9dea
+		isNameInferred
+		sourceColumn: [Year-Month]
+
+	column 'Year Month'
+		lineageTag: 35f22764-a882-404d-8bcf-ccffe02dfdfa
+		isNameInferred
+		sourceColumn: [Year Month]
+		sortByColumn: Year-Month
+
+	column 'Year Quarter'
+		lineageTag: 3a29c924-2961-4e5b-aa53-d48e5b58d78c
+		isNameInferred
+		sourceColumn: [Year Quarter]
+
+	partition Dim_Date = calculated
+		mode: import
+		source =
+				ADDCOLUMNS(
+				    CALENDAR(DATE(2019,1,1), DATE(2025,12,31)),
+				    "Year", YEAR([Date]),
+				    "Quarter", "Q" & QUARTER([Date]),
+				    "Quarter Number", QUARTER([Date]),
+				    "Month Number", MONTH([Date]),
+				    "Month", FORMAT([Date], "MMM"),
+				    "Month Label", FORMAT([Date], "MMMM"),
+				    "Year-Month", FORMAT([Date], "YYYY-MM"),
+				    "Year Month", FORMAT([Date], "YYYY-MMM"),
+				    "Year Quarter", FORMAT([Date],"YYYY") & " Q" & QUARTER([Date])
+				)
+

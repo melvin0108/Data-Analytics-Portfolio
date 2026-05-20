@@ -1,0 +1,228 @@
+D:\BI_Report\Report.Report (pbip) (10 pages) (0 bookmarks)
+Gö£GöÇGöÇ Tooltip.Page (0 visuals)
+Gö£GöÇGöÇ Contributor Insight.Page (6 visuals)
+Göé   Gö£GöÇGöÇ bar_capacity_type.Visual "Revenue by Funding Capacity" 
+Göé   Göé   (clusteredBarChart)
+Göé   Göé   Gö£GöÇGöÇ Category: Account.Funding Capacity Band (Column)
+Göé   Göé   Gö£GöÇGöÇ Legend: Account.Account Type (Column)
+Göé   Göé   GööGöÇGöÇ Y: _Measures.Total Paid (Measure)
+Göé   Gö£GöÇGöÇ bg_dark.Visual (shape)
+Göé   Gö£GöÇGöÇ col_paid_by_seg_yr.Visual "Revenue by Account Segment & Year" 
+Göé   Göé   (clusteredColumnChart)
+Göé   Göé   Gö£GöÇGöÇ Category: Account.Account Segment (Column)
+Göé   Göé   Gö£GöÇGöÇ Legend: Dim_Date.Year (Column)
+Göé   Göé   GööGöÇGöÇ Y: _Measures.Total Paid (Measure)
+Göé   Gö£GöÇGöÇ header_strip.Visual (shape)
+Göé   Gö£GöÇGöÇ scatter_capacity_gift.Visual "Capacity vs Avg Gift" (scatterChart)
+Göé   Göé   Gö£GöÇGöÇ Category: Account.Account Name (Column)
+Göé   Göé   Gö£GöÇGöÇ Legend: Account.Region (Column)
+Göé   Göé   Gö£GöÇGöÇ X: _Measures.Total Paid (Measure)
+Göé   Göé   GööGöÇGöÇ Y: _Measures.Avg Gift Size (Measure)
+Göé   GööGöÇGöÇ tbl_contributor_detail.Visual "Contributor Detail" (tableEx)
+Göé       GööGöÇGöÇ Values: Account.Account Name (Column), Account.Account Segment 
+Göé           (Column), Account.Account Type (Column), Account.Country (Column), 
+Göé           _Measures.Avg Gift Size (Measure), _Measures.Paid Pledges 
+Göé           (Measure), _Measures.Total Paid (Measure)
+Gö£GöÇGöÇ Campaign Performance.Page (6 visuals)
+Göé   Gö£GöÇGöÇ bg_dark.Visual (shape)
+Göé   Gö£GöÇGöÇ col_roi_research.Visual "ROI by Research Area" (clusteredColumnChart)
+Göé   Göé   Gö£GöÇGöÇ Category: MRA Campaign.Research Area (Column)
+Göé   Göé   GööGöÇGöÇ Y: _Measures.ROI (Measure)
+Göé   Gö£GöÇGöÇ combo_pledge_paid.Visual "Pledge Volume vs Paid Revenue" 
+Göé   Göé   (lineClusteredColumnComboChart)
+Göé   Göé   Gö£GöÇGöÇ Category: Dim_Date.Year Month (Column)
+Göé   Göé   Gö£GöÇGöÇ Y: _Measures.Total Pledges (Measure)
+Göé   Göé   GööGöÇGöÇ Y2: _Measures.Total Paid (Measure)
+Göé   Gö£GöÇGöÇ gauge_target.Visual "Target Achievement" (gauge) (2 filters)
+Göé   Göé   Gö£GöÇGöÇ _Measures.Target Achievement %.Filter
+Göé   Göé   Gö£GöÇGöÇ _Measures.Total Target.Filter
+Göé   Göé   Gö£GöÇGöÇ Filter: _Measures.Target Achievement % (Measure), _Measures.Total 
+Göé   Göé   Göé   Target (Measure)
+Göé   Göé   Gö£GöÇGöÇ MaxValue: _Measures.Total Target (Measure)
+Göé   Göé   Gö£GöÇGöÇ Sort: _Measures.Total Target (Measure)
+Göé   Göé   Gö£GöÇGöÇ TargetValue: _Measures.Target Achievement % (Measure)
+Göé   Göé   GööGöÇGöÇ Value: _Measures.Target Achievement % (Measure)
+Göé   Gö£GöÇGöÇ header_strip.Visual (shape)
+Göé   GööGöÇGöÇ tbl_campaign_detail.Visual "Campaign Performance Detail" (tableEx)
+Göé       GööGöÇGöÇ Values: MRA Campaign.Campaign Name (Column), MRA Campaign.Channel 
+Göé           Focus (Column), MRA Campaign.Research Area (Column), _Measures.ROI 
+Göé           (Measure), _Measures.Target Achievement % (Measure), 
+Göé           _Measures.Total Campaign Budget (Measure), _Measures.Total Paid 
+Göé           (Measure)
+Gö£GöÇGöÇ RFM Analysis.Page (10 visuals)
+Göé   Gö£GöÇGöÇ bar_rfm_seg_paid.Visual "Revenue by RFM Segment" (clusteredBarChart)
+Göé   Göé   Gö£GöÇGöÇ Category: Dim_RankRFM.Segment (Column)
+Göé   Göé   GööGöÇGöÇ Y: _Measures.Total Paid (Measure)
+Göé   Gö£GöÇGöÇ bg_dark.Visual (shape)
+Göé   Gö£GöÇGöÇ header_strip.Visual (shape)
+Göé   Gö£GöÇGöÇ kpi_rfm_avg_f.Visual "Avg Frequency" (card)
+Göé   Göé   GööGöÇGöÇ Values: _Measures.Avg Frequency (Measure)
+Göé   Gö£GöÇGöÇ kpi_rfm_avg_m.Visual "Avg Monetary Value" (card)
+Göé   Göé   GööGöÇGöÇ Values: _Measures.Avg Monetary (Measure)
+Göé   Gö£GöÇGöÇ kpi_rfm_avg_r.Visual "Avg Recency (Days)" (card) (1 filters)
+Göé   Göé   Gö£GöÇGöÇ _Measures.Avg Recency.Filter
+Göé   Göé   Gö£GöÇGöÇ Filter: _Measures.Avg Recency (Measure)
+Göé   Göé   Gö£GöÇGöÇ Sort: _Measures.Avg Recency (Measure)
+Göé   Göé   GööGöÇGöÇ Values: _Measures.Avg Recency (Measure)
+Göé   Gö£GöÇGöÇ kpi_rfm_contributors.Visual "Total Contributors" (card)
+Göé   Göé   GööGöÇGöÇ Values: _Measures.Total Contributors (Measure)
+Göé   Gö£GöÇGöÇ scatter_rfm_fm.Visual "Frequency vs Monetary by Segment" (scatterChart)
+Göé   Göé   Gö£GöÇGöÇ Category: Dim_RankRFM.Segment (Column)
+Göé   Göé   Gö£GöÇGöÇ Size: _Measures.Total Paid (Measure)
+Göé   Göé   Gö£GöÇGöÇ X: _Measures.Avg Frequency (Measure)
+Göé   Göé   GööGöÇGöÇ Y: _Measures.Avg Monetary (Measure)
+Göé   Gö£GöÇGöÇ tbl_rfm_detail.Visual "RFM Segment Detail" (tableEx)
+Göé   Göé   GööGöÇGöÇ Values: Dim_RankRFM.Segment (Column), _Measures.Avg Gift Size 
+Göé   Göé       (Measure), _Measures.Total Contributors (Measure), _Measures.Total 
+Göé   Göé       Paid (Measure)
+Göé   GööGöÇGöÇ treemap_rfm_seg.Visual "Contributors by RFM Segment" (treemap)
+Göé       Gö£GöÇGöÇ Category: Dim_RankRFM.Segment (Column)
+Göé       GööGöÇGöÇ Values: _Measures.Total Contributors (Measure)
+Gö£GöÇGöÇ CLV and Churn.Page (10 visuals)
+Göé   Gö£GöÇGöÇ bar_churn_segment.Visual "Churn Risk by Segment" (clusteredBarChart) (1
+Göé   Göé   filters)
+Göé   Göé   Gö£GöÇGöÇ Dim_RankRFM.Segment.Filter
+Göé   Göé   Gö£GöÇGöÇ Category: Dim_RankRFM.Segment (Column)
+Göé   Göé   Gö£GöÇGöÇ Filter: Dim_RankRFM.Segment (Column)
+Göé   Göé   GööGöÇGöÇ Y: _Measures.Churn Rate (Measure)
+Göé   Gö£GöÇGöÇ bg_dark.Visual (shape)
+Göé   Gö£GöÇGöÇ donut_clv_seg.Visual "CLV by RFM Segment" (donutChart) (2 filters)
+Göé   Göé   Gö£GöÇGöÇ Dim_RankRFM.Segment.Filter
+Göé   Göé   Gö£GöÇGöÇ _Measures.Customer Lifetime Value.Filter
+Göé   Göé   Gö£GöÇGöÇ Category: Dim_RankRFM.Segment (Column)
+Göé   Göé   Gö£GöÇGöÇ Filter: Dim_RankRFM.Segment (Column), _Measures.Customer Lifetime 
+Göé   Göé   Göé   Value (Measure)
+Göé   Göé   GööGöÇGöÇ Values: _Measures.Customer Lifetime Value (Measure)
+Göé   Gö£GöÇGöÇ header_strip.Visual (shape)
+Göé   Gö£GöÇGöÇ kpi_avg_gift_clv.Visual "Avg Gift Size" (card)
+Göé   Göé   GööGöÇGöÇ Values: _Measures.Avg Gift Size (Measure)
+Göé   Gö£GöÇGöÇ kpi_churn_rate.Visual "Churn Rate" (card)
+Göé   Göé   GööGöÇGöÇ Values: _Measures.Churn Rate (Measure)
+Göé   Gö£GöÇGöÇ kpi_clv.Visual "Customer Lifetime Value" (card)
+Göé   Göé   GööGöÇGöÇ Values: _Measures.Customer Lifetime Value (Measure)
+Göé   Gö£GöÇGöÇ kpi_purchase_freq.Visual "Purchase Frequency" (card)
+Göé   Göé   GööGöÇGöÇ Values: _Measures.Purchase Frequency (Measure)
+Göé   Gö£GöÇGöÇ line_rev_per_contrib.Visual "Revenue per Contributor over Time" 
+Göé   Göé   (lineChart)
+Göé   Göé   Gö£GöÇGöÇ Category: Dim_Date.Year Month (Column)
+Göé   Göé   GööGöÇGöÇ Y: _Measures.Revenue per Contributor (Measure)
+Göé   GööGöÇGöÇ tbl_clv_detail.Visual "CLV Contributor Detail" (tableEx)
+Göé       GööGöÇGöÇ Values: Account.Account Name (Column), Account.Account Type 
+Göé           (Column), _Measures.Customer Lifetime Value (Measure), 
+Göé           _Measures.Total Paid (Measure)
+Gö£GöÇGöÇ Cohort Retention.Page (3 visuals)
+Göé   Gö£GöÇGöÇ bg_dark.Visual (shape)
+Göé   Gö£GöÇGöÇ header_strip.Visual (shape)
+Göé   GööGöÇGöÇ matrix_cohort.Visual "Cohort Retention Matrix (First Payment Month vs 
+Göé       Months Since)" (pivotTable)
+Göé       Gö£GöÇGöÇ Columns: Medical Research Grant Appeal.Month Offset (Column)
+Göé       Gö£GöÇGöÇ Rows: Medical Research Grant Appeal.First Payment Month (Column)
+Göé       GööGöÇGöÇ Values: _Measures.Retention Rate (Measure)
+Gö£GöÇGöÇ Market Basket.Page (5 visuals)
+Göé   Gö£GöÇGöÇ bar_lift_top10.Visual "Top 10 Rules by Lift" (clusteredBarChart) (1 
+Göé   Göé   filters)
+Göé   Göé   Gö£GöÇGöÇ BasketPairs.Antecedent.Filter
+Göé   Göé   Gö£GöÇGöÇ Category: BasketPairs.Antecedent (Column)
+Göé   Göé   Gö£GöÇGöÇ Filter: BasketPairs.Antecedent (Column)
+Göé   Göé   GööGöÇGöÇ Y: _Measures.Pair Lift (Measure)
+Göé   Gö£GöÇGöÇ bg_dark.Visual (shape)
+Göé   Gö£GöÇGöÇ header_strip.Visual (shape)
+Göé   Gö£GöÇGöÇ matrix_basket.Visual "Association Rules: Support & Confidence" 
+Göé   Göé   (pivotTable)
+Göé   Göé   Gö£GöÇGöÇ Columns: BasketPairs.Consequent (Column)
+Göé   Göé   Gö£GöÇGöÇ Rows: BasketPairs.Antecedent (Column)
+Göé   Göé   GööGöÇGöÇ Values: _Measures.Pair Confidence (Measure), _Measures.Pair Lift 
+Göé   Göé       (Measure), _Measures.Pair Support (Measure)
+Göé   GööGöÇGöÇ tbl_basket_detail.Visual "Basket Pairs Detail" (tableEx)
+Göé       GööGöÇGöÇ Values: BasketPairs.Antecedent (Column), BasketPairs.Consequent 
+Göé           (Column), _Measures.Pair Confidence (Measure), _Measures.Pair Lift 
+Göé           (Measure), _Measures.Pair Support (Measure)
+Gö£GöÇGöÇ What-If Goal Seek.Page (10 visuals)
+Göé   Gö£GöÇGöÇ bg_dark.Visual (shape)
+Göé   Gö£GöÇGöÇ header_strip.Visual (shape)
+Göé   Gö£GöÇGöÇ kpi_gap_to_goal.Visual "Gap to Goal" (card)
+Göé   Göé   GööGöÇGöÇ Values: _Measures.Gap to Goal (Measure)
+Göé   Gö£GöÇGöÇ kpi_projected_paid.Visual "Projected Paid" (card)
+Göé   Göé   GööGöÇGöÇ Values: _Measures.Projected Paid (Measure)
+Göé   Gö£GöÇGöÇ kpi_total_paid_wi.Visual "Current Paid" (card)
+Göé   Göé   GööGöÇGöÇ Values: _Measures.Total Paid (Measure)
+Göé   Gö£GöÇGöÇ line_historical_trend.Visual "Historical Paid Revenue Trend" 
+Göé   Göé   (lineChart)
+Göé   Göé   Gö£GöÇGöÇ Category: Dim_Date.Year (Column)
+Göé   Göé   GööGöÇGöÇ Y: _Measures.Projected Paid (Measure), _Measures.Total Paid 
+Göé   Göé       (Measure)
+Göé   Gö£GöÇGöÇ slicer_goal_target.Visual "Goal Target ($)" (slicer)
+Göé   Göé   GööGöÇGöÇ Values: Goal Target Param.Goal Target (Column)
+Göé   Gö£GöÇGöÇ slicer_growth_rate.Visual "Growth Rate (%)" (slicer)
+Göé   Göé   GööGöÇGöÇ Values: Growth Rate Param.Growth Rate (Column)
+Göé   Gö£GöÇGöÇ tbl_scenario_by_year.Visual "Year-by-Year Scenario Comparison" 
+Göé   Göé   (tableEx)
+Göé   Göé   GööGöÇGöÇ Values: Dim_Date.Year (Column), _Measures.Gap to Goal (Measure), 
+Göé   Göé       _Measures.Projected Paid (Measure), _Measures.Total Paid (Measure)
+Göé   GööGöÇGöÇ waterfall_scenario.Visual "Scenario: Base vs Projected vs Target" 
+Göé       (waterfallChart) (2 filters)
+Göé       Gö£GöÇGöÇ Dim_Date.Year.Filter
+Göé       Gö£GöÇGöÇ _Measures.Total Paid.Filter
+Göé       Gö£GöÇGöÇ Category: Dim_Date.Year (Column)
+Göé       Gö£GöÇGöÇ Filter: Dim_Date.Year (Column), _Measures.Total Paid (Measure)
+Göé       GööGöÇGöÇ Y: _Measures.Total Paid (Measure)
+Gö£GöÇGöÇ Advanced Anomalies.Page (6 visuals)
+Göé   Gö£GöÇGöÇ bar_anomaly_segment.Visual "Avg Gift Size by Account Segment" 
+Göé   Göé   (clusteredBarChart)
+Göé   Göé   Gö£GöÇGöÇ Category: Account.Account Segment (Column)
+Göé   Göé   GööGöÇGöÇ Y: _Measures.Avg Gift Size (Measure)
+Göé   Gö£GöÇGöÇ bg_dark.Visual (shape)
+Göé   Gö£GöÇGöÇ col_pledge_vs_paid_channel.Visual "Pledge vs Paid by Channel Focus" 
+Göé   Göé   (clusteredColumnChart)
+Göé   Göé   Gö£GöÇGöÇ Category: MRA Campaign.Channel Focus (Column)
+Göé   Göé   GööGöÇGöÇ Y: _Measures.Total Paid (Measure), _Measures.Total Pledged 
+Göé   Göé       (Measure)
+Göé   Gö£GöÇGöÇ header_strip.Visual (shape)
+Göé   Gö£GöÇGöÇ scatter_pledge_paid_dist.Visual "Gift Distribution" (scatterChart)
+Göé   Göé   Gö£GöÇGöÇ Category: Account.Account Name (Column)
+Göé   Göé   Gö£GöÇGöÇ X: _Measures.Total Pledged (Measure)
+Göé   Göé   GööGöÇGöÇ Y: _Measures.Total Paid (Measure)
+Göé   GööGöÇGöÇ tbl_anomaly_detail.Visual "Outlier Detail High-Value Pledges" (tableEx)
+Göé       GööGöÇGöÇ Values: Account.Account Name (Column), Account.Account Type 
+Göé           (Column), _Measures.Avg Days to Pay (Measure), _Measures.Avg Gift 
+Göé           Size (Measure), _Measures.Total Paid (Measure)
+GööGöÇGöÇ Overview.Page (13 visuals)
+    Gö£GöÇGöÇ bar_channel_focus.Visual "Revenue by Channel Focus" (clusteredBarChart)
+    Göé   Gö£GöÇGöÇ Category: MRA Campaign.Channel Focus (Column)
+    Göé   GööGöÇGöÇ Y: _Measures.Total Paid (Measure)
+    Gö£GöÇGöÇ bar_research_area.Visual "Revenue by Research Area" (clusteredBarChart)
+    Göé   Gö£GöÇGöÇ Category: MRA Campaign.Research Area (Column)
+    Göé   GööGöÇGöÇ Y: _Measures.Total Paid (Measure)
+    Gö£GöÇGöÇ bar_top_countries.Visual "Top Countries by Revenue" (clusteredBarChart)
+    Göé   Gö£GöÇGöÇ Category: Account.Country (Column)
+    Göé   GööGöÇGöÇ Y: _Measures.Total Paid (Measure)
+    Gö£GöÇGöÇ bg_dark.Visual (shape)
+    Gö£GöÇGöÇ donut_account_type.Visual "Revenue by Account Type" (donutChart) (2 
+    Göé   filters)
+    Göé   Gö£GöÇGöÇ _Measures.Total Paid.Filter
+    Göé   Gö£GöÇGöÇ Account.Account Type.Filter
+    Göé   Gö£GöÇGöÇ Category: Account.Account Type (Column)
+    Göé   Gö£GöÇGöÇ Filter: Account.Account Type (Column), _Measures.Total Paid 
+    Göé   Göé   (Measure)
+    Göé   GööGöÇGöÇ Values: _Measures.Total Paid (Measure)
+    Gö£GöÇGöÇ donut_contrib_group.Visual "Revenue by Contribution Group" (donutChart)
+    Göé   Gö£GöÇGöÇ Category: Contribution.Contribution Group (Column)
+    Göé   GööGöÇGöÇ Values: _Measures.Total Paid (Measure)
+    Gö£GöÇGöÇ header_strip.Visual (shape)
+    Gö£GöÇGöÇ kpi_avg_gift.Visual "Avg Gift Size" (card)
+    Göé   GööGöÇGöÇ Values: _Measures.Avg Gift Size (Measure)
+    Gö£GöÇGöÇ kpi_conversion.Visual "Pledge Conversion %" (card)
+    Göé   GööGöÇGöÇ Values: _Measures.Pledge Conversion % (Measure)
+    Gö£GöÇGöÇ kpi_paid_pledges.Visual "Paid Pledges" (card)
+    Göé   GööGöÇGöÇ Values: _Measures.Paid Pledges (Measure)
+    Gö£GöÇGöÇ kpi_total_paid.Visual "Total Revenue Paid" (card)
+    Göé   GööGöÇGöÇ Values: _Measures.Total Paid (Measure)
+    Gö£GöÇGöÇ slicer_year.Visual "Year Filter" (slicer) (1 filters)
+    Göé   Gö£GöÇGöÇ Dim_Date.Year.Filter
+    Göé   Gö£GöÇGöÇ Filter: Dim_Date.Year (Column)
+    Göé   GööGöÇGöÇ Values: Dim_Date.Year (Column)
+    GööGöÇGöÇ trend_line_paid.Visual "Total Paid Monthly Trend" (lineChart)
+        Gö£GöÇGöÇ Category: Dim_Date.Year Month (Column)
+        GööGöÇGöÇ Y: _Measures.Total Paid (Measure), _Measures.Total Paid PY 
+            (Measure)
+

@@ -1,0 +1,45 @@
+# ═══════════════════════════════════════════════════════════════════
+# dbt Profile — Snowflake Connection
+# Place in ~/.dbt/profiles.yml (not committed to git)
+# ═══════════════════════════════════════════════════════════════════
+
+icmra_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"   # e.g. xy12345.us-east-1
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: ICMRA_ETL_ROLE
+      database: ICMRA_DB
+      warehouse: ICMRA_ETL_WH
+      schema: ANALYTICS
+      threads: 4
+      client_session_keep_alive: False
+      query_tag: "dbt_icmra_dev"
+
+    ci:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: ICMRA_ETL_ROLE
+      database: ICMRA_DB
+      warehouse: ICMRA_ETL_WH
+      schema: "ANALYTICS_CI_{{ env_var('GITHUB_REF_NAME', 'local') | replace('/', '_') }}"
+      threads: 2
+      query_tag: "dbt_icmra_ci"
+
+    prod:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      private_key_path: "{{ env_var('SNOWFLAKE_PRIVATE_KEY_PATH') }}"
+      role: ICMRA_ETL_ROLE
+      database: ICMRA_DB
+      warehouse: ICMRA_ETL_WH
+      schema: ANALYTICS
+      threads: 4
+      client_session_keep_alive: False
+      query_tag: "dbt_icmra_prod"

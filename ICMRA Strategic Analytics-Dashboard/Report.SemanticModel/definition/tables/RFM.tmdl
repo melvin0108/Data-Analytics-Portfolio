@@ -1,0 +1,87 @@
+table RFM
+	lineageTag: e0f5d16d-0968-4067-b26c-d1e8236fa875
+
+	column 'Account ID'
+		lineageTag: 25304c16-9f69-49dc-9f7c-a046fd3d3e59
+		sourceColumn: Medical Research Grant Appeal[Account ID]
+
+	column R
+		lineageTag: 9d972c16-6940-4b35-8f6f-47d59e1b0be6
+		isNameInferred
+		sourceColumn: [R]
+
+	column F
+		lineageTag: 3b060181-ab88-45b3-bae0-ecc450e8131f
+		isNameInferred
+		sourceColumn: [F]
+
+	column M
+		lineageTag: 09a473a6-cedc-48ca-a208-2ebb9afdc156
+		isNameInferred
+		sourceColumn: [M]
+
+	column LastPayDate
+		isHidden
+		lineageTag: 172619a2-04f0-45f9-912d-dd0f5c03feb7
+		isNameInferred
+		sourceColumn: [LastPayDate]
+
+	column 'R Score' =
+			VAR P20 = PERCENTILE.INC(RFM[R], 0.20)
+			VAR P40 = PERCENTILE.INC(RFM[R], 0.40)
+			VAR P60 = PERCENTILE.INC(RFM[R], 0.60)
+			VAR P80 = PERCENTILE.INC(RFM[R], 0.80)
+			RETURN SWITCH(TRUE(),
+			    RFM[R] <= P20, 5,
+			    RFM[R] <= P40, 4,
+			    RFM[R] <= P60, 3,
+			    RFM[R] <= P80, 2,
+			    1
+			)
+		lineageTag: f6ecc393-5650-4355-9b6d-5bb44c684158
+
+	column 'F Score' =
+			VAR P20 = PERCENTILE.INC(RFM[F], 0.20)
+			VAR P40 = PERCENTILE.INC(RFM[F], 0.40)
+			VAR P60 = PERCENTILE.INC(RFM[F], 0.60)
+			VAR P80 = PERCENTILE.INC(RFM[F], 0.80)
+			RETURN SWITCH(TRUE(),
+			    RFM[F] >= P80, 5,
+			    RFM[F] >= P60, 4,
+			    RFM[F] >= P40, 3,
+			    RFM[F] >= P20, 2,
+			    1
+			)
+		lineageTag: 67555345-d224-4868-9b03-a683e2d4c1f6
+
+	column 'M Score' =
+			VAR P20 = PERCENTILE.INC(RFM[M], 0.20)
+			VAR P40 = PERCENTILE.INC(RFM[M], 0.40)
+			VAR P60 = PERCENTILE.INC(RFM[M], 0.60)
+			VAR P80 = PERCENTILE.INC(RFM[M], 0.80)
+			RETURN SWITCH(TRUE(),
+			    RFM[M] >= P80, 5,
+			    RFM[M] >= P60, 4,
+			    RFM[M] >= P40, 3,
+			    RFM[M] >= P20, 2,
+			    1
+			)
+		lineageTag: 33f8a950-3a35-44f1-a2ba-c7cd5af3f109
+
+	column 'RFM Score' = RFM[R Score] & RFM[F Score] & RFM[M Score]
+		lineageTag: 23fa1293-2030-4ced-a8c9-fc49092b8e30
+
+	partition RFM = calculated
+		mode: import
+		source =
+				VAR PaidFact = FILTER('Medical Research Grant Appeal', 'Medical Research Grant Appeal'[Payment Status] = "Paid")
+				VAR MaxDate = DATE(2025, 12, 31)
+				VAR FMTable = GROUPBY(
+				    PaidFact,
+				    'Medical Research Grant Appeal'[Account ID],
+				    "F", COUNTX(CURRENTGROUP(), 'Medical Research Grant Appeal'[Pledge ID]),
+				    "M", SUMX(CURRENTGROUP(), 'Medical Research Grant Appeal'[Pledge-Pay Amount]),
+				    "LastPayDate", MAXX(CURRENTGROUP(), 'Medical Research Grant Appeal'[Payment Date])
+				)
+				RETURN ADDCOLUMNS(FMTable, "R", DATEDIFF([LastPayDate], MaxDate, DAY))
+

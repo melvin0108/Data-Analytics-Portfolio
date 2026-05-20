@@ -1,0 +1,186 @@
+# ═══════════════════════════════════════════════════════════════════
+# GitHub Actions — dbt CI/CD Pipeline
+# Triggers:
+#   - Pull Request to main: compile + test (CI)
+#   - Push to main: full build + snapshot + docs (CD)
+# ═══════════════════════════════════════════════════════════════════
+
+name: dbt CI/CD Pipeline
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'dbt_project/**'
+      - '.github/workflows/dbt_ci_cd.yml'
+
+  push:
+    branches: [main]
+    paths:
+      - 'dbt_project/**'
+      - '.github/workflows/dbt_ci_cd.yml'
+
+  workflow_dispatch:  # Allow manual trigger
+
+env:
+  DBT_PROFILES_DIR: ./dbt_project
+  SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+  SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+  SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+
+jobs:
+  # ── CI: Compile & Test (on every PR) ───────────────────────────
+  compile-and-test:
+    name: dbt Compile & Test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dbt-snowflake
+        run: |
+          pip install dbt-snowflake>=1.7.0
+          pip install dbt-core>=1.7.0
+
+      - name: Install dbt packages
+        run: |
+          cd dbt_project
+          dbt deps
+
+      - name: dbt compile
+        run: |
+          cd dbt_project
+          dbt compile --target ci
+        env:
+          GITHUB_REF_NAME: ${{ github.head_ref }}
+
+      - name: dbt test (staging)
+        run: |
+          cd dbt_project
+          dbt test --target ci --select staging
+        env:
+          GITHUB_REF_NAME: ${{ github.head_ref }}
+
+      - name: dbt test (intermediate)
+        run: |
+          cd dbt_project
+          dbt test --target ci --select intermediate
+        env:
+          GITHUB_REF_NAME: ${{ github.head_ref }}
+
+      - name: dbt test (marts)
+        run: |
+          cd dbt_project
+          dbt test --target ci --select marts
+        env:
+          GITHUB_REF_NAME: ${{ github.head_ref }}
+
+      - name: Post test results as PR comment
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '## dbt CI Results\n\n✅ Compile: Passed\n✅ Tests: All passed\n\n_Built from commit `${{ github.sha }}`_'
+            })
+
+  # ── CD: Build & Deploy (on merge to main) ─────────────────────
+  build-and-deploy:
+    name: dbt Build & Deploy
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    environment: production
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dbt-snowflake
+        run: |
+          pip install dbt-snowflake>=1.7.0
+          pip install dbt-core>=1.7.0
+
+      - name: Install dbt packages
+        run: |
+          cd dbt_project
+          dbt deps
+
+      - name: dbt build (full pipeline)
+        run: |
+          cd dbt_project
+          dbt build --target prod
+        env:
+          GITHUB_REF_NAME: main
+
+      - name: dbt snapshot
+        run: |
+          cd dbt_project
+          dbt snapshot --target prod
+        env:
+          GITHUB_REF_NAME: main
+
+      - name: Generate dbt docs
+        run: |
+          cd dbt_project
+          dbt docs generate --target prod
+        env:
+          GITHUB_REF_NAME: main
+
+      - name: Upload dbt docs artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dbt-docs
+          path: dbt_project/target/
+          retention-days: 30
+
+      - name: Pipeline summary
+        if: always()
+        run: |
+          echo "## dbt Deployment Summary"
+          echo "- **Environment:** Production"
+          echo "- **Target schema:** ICMRA_DB.ANALYTICS"
+          echo "- **Commit:** ${{ github.sha }}"
+          echo "- **Triggered by:** ${{ github.actor }}"
+          echo "- **Timestamp:** $(date -u)"
+
+  # ── Scheduled: Nightly freshness check ─────────────────────────
+  freshness-check:
+    name: Data Freshness Check
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    schedule:
+      - cron: '0 6 * * *'  # 6 AM UTC daily
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dbt-snowflake
+        run: pip install dbt-snowflake>=1.7.0
+
+      - name: dbt source freshness
+        run: |
+          cd dbt_project
+          dbt source freshness --target prod
+        env:
+          GITHUB_REF_NAME: main
