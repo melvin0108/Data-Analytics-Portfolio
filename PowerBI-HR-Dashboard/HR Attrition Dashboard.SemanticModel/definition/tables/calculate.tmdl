@@ -1,0 +1,64 @@
+table calculate
+	lineageTag: 7f903357-82c4-436d-8dde-a2191db7277f
+
+	measure Total_Employee = DISTINCTCOUNT(Employee[EmployeeID])
+		formatString: 0
+		lineageTag: 8882044f-615a-42ee-992b-18f91bac9e6a
+
+	measure Attrition_Rate =
+			
+			DIVIDE(
+			    CALCULATE(DISTINCTCOUNT(Employee[EmployeeID]), FILTER(Employee, Employee[Attrition] = "Yes")),
+			    DISTINCTCOUNT(Employee[EmployeeID]))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ca542e49-576e-4a1b-8a03-b6cab78f113a
+
+	measure %_of_Attrition_Rate_No = ```
+			
+			DIVIDE(
+			    COUNTROWS(FILTER(Employee, Employee[Attrition] = "No")), 
+			    COUNTROWS(Employee)
+			)
+			
+			```
+		lineageTag: 1656d895-dbfd-457c-8cc9-78ef3e6d6cda
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Resigned = CALCULATE(COUNT(Employee[EmployeeID]), Employee[Attrition] = "Yes")
+		formatString: 0
+		lineageTag: 75134a9c-2b92-46c1-be28-53a4ef20159e
+
+	measure OnWorking = CALCULATE(COUNT(Employee[EmployeeID]), Employee[Attrition] = "No")
+		formatString: 0
+		lineageTag: dd52f0f1-ca40-4fab-8c40-98e51c1c692a
+
+	measure 'AVG Salary' = AVERAGE(Employee[Salary])
+		lineageTag: 9cf73078-7c3c-43b3-98b0-e0aec1e08b2d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Next Review Date' = ```
+			
+			VAR LastedReview = CALCULATE(MAX(PerformanceRating[ReviewDate]))
+			RETURN
+			        EDATE(LastedReview, 12)  -- Thêm 12 tháng vào ngày đánh giá gần nhất
+			
+			```
+		formatString: dd/mm/yyyy
+		lineageTag: fc5934f6-bf70-4e9d-978b-1a0947aeaef9
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	partition calculate = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+

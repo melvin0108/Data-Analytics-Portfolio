@@ -1,0 +1,20 @@
+table 'Cases Name'
+	lineageTag: e3024ea3-cf71-4d43-9bea-fe978e4e6090
+
+	column Column
+		formatString: 0
+		lineageTag: 45710561-ebd4-4fc1-b07f-aa2c94e3178e
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Cases Name' = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 8337a3618a934f8896054b1eb46e2070
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

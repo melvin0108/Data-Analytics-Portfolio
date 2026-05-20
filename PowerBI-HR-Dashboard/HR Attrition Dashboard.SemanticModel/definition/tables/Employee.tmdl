@@ -1,0 +1,380 @@
+table Employee
+	lineageTag: 8372fdc7-42ec-4ddc-9837-b6eb592e8a5e
+
+	column EmployeeID
+		dataType: string
+		lineageTag: 28b035d0-5607-459f-990c-e888b0ae70f9
+		summarizeBy: none
+		sourceColumn: EmployeeID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: b55b335a-f3da-40a9-b721-4472434b2ae1
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: d6e02970-26bc-43d1-808d-cf4e9e078541
+		summarizeBy: none
+		sourceColumn: LastName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: 2f76acbd-a92c-48a7-a1c6-7f9f7ec55536
+		summarizeBy: none
+		sourceColumn: Gender
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: int64
+		formatString: 0
+		lineageTag: 148a6896-6582-4dc9-96a9-2dbb73de34a7
+		summarizeBy: sum
+		sourceColumn: Age
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BusinessTravel
+		dataType: string
+		lineageTag: 19960fd6-cb7f-4d35-816e-01c094f31b0b
+		summarizeBy: none
+		sourceColumn: BusinessTravel
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department
+		dataType: string
+		lineageTag: 7c6e6b80-45a8-4a37-b3a7-3af1286d3f67
+		summarizeBy: none
+		sourceColumn: Department
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DistanceFromHome (KM)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1e5cb873-d13e-4f05-a888-0bc995f3df5a
+		summarizeBy: sum
+		sourceColumn: DistanceFromHome (KM)
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column State
+		dataType: string
+		lineageTag: 20e6c2bf-48ea-438a-bf36-4b95f096da54
+		summarizeBy: none
+		sourceColumn: State
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ethnicity
+		dataType: string
+		lineageTag: 911c116b-7e76-417a-8192-3b49807f99e4
+		summarizeBy: none
+		sourceColumn: Ethnicity
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Education
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a81420c-41e7-4b4e-a2a3-7fbb473a8654
+		summarizeBy: none
+		sourceColumn: Education
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EducationField
+		dataType: string
+		lineageTag: 6acd5d25-e12d-40c2-8df5-5f05c006f317
+		summarizeBy: none
+		sourceColumn: EducationField
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobRole
+		dataType: string
+		lineageTag: 61227df8-7209-4065-a010-de2af5d6c325
+		summarizeBy: none
+		sourceColumn: JobRole
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaritalStatus
+		dataType: string
+		lineageTag: d0ac7751-4394-4732-8be6-ec0f73d81708
+		summarizeBy: none
+		sourceColumn: MaritalStatus
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Salary
+		dataType: int64
+		formatString: 0
+		lineageTag: 6f722dbe-28ef-4b19-8796-edb50d859a18
+		summarizeBy: sum
+		sourceColumn: Salary
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column StockOptionLevel
+		dataType: int64
+		formatString: 0
+		lineageTag: dc9535d7-533b-4d95-a35a-6a66cd33526b
+		summarizeBy: sum
+		sourceColumn: StockOptionLevel
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column OverTime
+		dataType: string
+		lineageTag: 40cb7166-31c7-4ead-ae16-f0864e64a96d
+		summarizeBy: none
+		sourceColumn: OverTime
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column HireDate
+		dataType: dateTime
+		formatString: mm/dd/yy
+		lineageTag: 8d69abc9-66a9-414d-9ac7-f77c216a560a
+		summarizeBy: none
+		sourceColumn: HireDate
+
+		variation Variation
+			isDefault
+			relationship: 76de1a5b-21fc-4fc4-9717-c4ea14f77610
+			defaultHierarchy: LocalDateTable_147f9716-c286-46e1-817a-0e441d10c16f.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Attrition
+		dataType: string
+		lineageTag: 9055b734-f83d-4864-8383-e34103ea9549
+		summarizeBy: none
+		sourceColumn: Attrition
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearsAtCompany
+		dataType: int64
+		formatString: 0
+		lineageTag: f888914c-2546-47b3-98e8-5c2a02d82bcf
+		summarizeBy: sum
+		sourceColumn: YearsAtCompany
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearsInMostRecentRole
+		dataType: int64
+		formatString: 0
+		lineageTag: c697c343-ce71-41ab-bd2f-12478ac560c3
+		summarizeBy: sum
+		sourceColumn: YearsInMostRecentRole
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearsSinceLastPromotion
+		dataType: int64
+		formatString: 0
+		lineageTag: fab9275a-691d-4932-af29-bc4c6932e246
+		summarizeBy: sum
+		sourceColumn: YearsSinceLastPromotion
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearsWithCurrManager
+		dataType: int64
+		formatString: 0
+		lineageTag: 90d24acd-6d39-4121-9d93-13c00d5c01b3
+		summarizeBy: sum
+		sourceColumn: YearsWithCurrManager
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column AgeGroup = ```
+			
+			SWITCH(
+			    TRUE(),
+			    [Age] < 20, "< 20",
+			    [Age] >= 20 && [Age] <= 29, "20 - 29",
+			    [Age] >= 30 && [Age] <= 39, "30 - 39",
+			    [Age] >= 40 && [Age] <= 50, "40 - 50",
+			    [Age] > 50, "> 50",
+			    "Unknown"
+			)
+			
+			```
+		lineageTag: 4f85f42d-4661-464b-ae9e-0541cb1fd728
+		summarizeBy: none
+		sortByColumn: AgeGroupOrder
+
+		changedProperty = IsHidden
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Distance = ```
+			
+			TRIM(
+			   SWITCH(
+			      TRUE(),
+			      Employee[DistanceFromHome (KM)] < 10, "<10Km",
+			      Employee[DistanceFromHome (KM)] >= 10 && Employee[DistanceFromHome (KM)] < 20, "10-20Km",
+			      Employee[DistanceFromHome (KM)] >= 20, ">20Km"
+			   )
+			)
+			
+			```
+		lineageTag: a423685b-be93-4e49-ab61-796f54534b1a
+		summarizeBy: none
+		sortByColumn: DistanceOrder
+
+		changedProperty = IsHidden
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fullname = Employee[FirstName] & " " & Employee[LastName]
+		lineageTag: 254344fc-3618-4f28-9f8e-3be0d5ebb021
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalaryGroup = ```
+			
+			SWITCH(
+			    TRUE(),
+			    [Salary] < 30000, "2xxxx",
+			    [Salary] >= 30000 && [Salary] < 40000, "3xxxx",
+			    [Salary] >= 40000 && [Salary] < 50000, "4xxxx",
+			    [Salary] >= 50000 && [Salary] < 60000, "5xxxx",
+			    [Salary] >= 60000 && [Salary] < 70000, "6xxxx",
+			    [Salary] >= 70000 && [Salary] < 80000, "7xxxx",
+			    [Salary] >= 80000 && [Salary] < 90000, "8xxxx",
+			    [Salary] >= 90000 && [Salary] < 100000, "9xxxx",
+			    "10xxxx"
+			)
+			
+			```
+		lineageTag: f127d91e-5f5e-4acb-bfef-f07c0131abfb
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column AgeGroupOrder = ```
+			
+			SWITCH(
+			    TRUE(),
+			    Employee[Age] < 20, 1,
+			    Employee[Age] >= 20 && Employee[Age] <= 29, 2,
+			    Employee[Age] >= 30 && Employee[Age] <= 39, 3,
+			    Employee[Age] >= 40 && Employee[Age] <= 50, 4,
+			    Employee[Age] > 50, 5
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 34470368-db1e-4485-8742-cf4d59665d2e
+		summarizeBy: sum
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column DistanceOrder = ```
+			
+			SWITCH(
+			    TRUE(),
+			    Employee[DistanceFromHome (KM)] < 10, 1,
+			    Employee[DistanceFromHome (KM)] >= 10 && Employee[DistanceFromHome (KM)] < 20, 2,
+			    Employee[DistanceFromHome (KM)] >= 20, 3
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 8fedacfd-bd0f-4a3e-9a41-a924cef141b3
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Employee = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Admin\PowerBI\week 3\Project 1 Data\Employee.csv"),[Delimiter=",", Columns=23, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"EmployeeID", type text}, {"FirstName", type text}, {"LastName", type text}, {"Gender", type text}, {"Age", Int64.Type}, {"BusinessTravel", type text}, {"Department", type text}, {"DistanceFromHome (KM)", Int64.Type}, {"State", type text}, {"Ethnicity", type text}, {"Education", Int64.Type}, {"EducationField", type text}, {"JobRole", type text}, {"MaritalStatus", type text}, {"Salary", Int64.Type}, {"StockOptionLevel", Int64.Type}, {"OverTime", type text}, {"HireDate", type date}, {"Attrition", type text}, {"YearsAtCompany", Int64.Type}, {"YearsInMostRecentRole", Int64.Type}, {"YearsSinceLastPromotion", Int64.Type}, {"YearsWithCurrManager", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

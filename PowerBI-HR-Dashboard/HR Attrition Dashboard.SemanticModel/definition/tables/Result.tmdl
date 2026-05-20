@@ -1,0 +1,50 @@
+table Result
+	lineageTag: 5a1dce77-b456-4e6b-938d-dedc67254407
+
+	column Fullname
+		lineageTag: 2bf99c3b-edff-4e48-9098-da23cbbb3b75
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Fullname]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeID
+		lineageTag: 8a58edda-a807-4561-9341-064824a5845c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [EmployeeID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalSatisfaction = ```
+			
+			CALCULATE(
+			    SUMX(
+			        PerformanceRating,
+			        PerformanceRating[JobSatisfaction] +
+			        PerformanceRating[EnvironmentSatisfaction] +
+			        PerformanceRating[RelationshipSatisfaction]
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 1ededc59-3450-42ab-8d12-9f3585b5790a
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Result = calculated
+		mode: import
+		source = ```
+				SELECTCOLUMNS(
+				    Employee,
+				    "Fullname", Employee[FullName],
+				    "EmployeeID", Employee[EmployeeID]
+				)
+				
+				```
+
+	annotation PBI_Id = f64414965ea840b69a2fed579e57354b
+

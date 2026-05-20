@@ -1,0 +1,202 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "945e1ba26b9af1c62c80",
+  "position": {
+    "x": 200.24539877300614,
+    "y": 520.24539877300617,
+    "z": 0,
+    "height": 199.59100204498978,
+    "width": 753.86503067484659,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Employee"
+                    }
+                  },
+                  "Property": "EmployeeID"
+                }
+              },
+              "queryRef": "Employee.EmployeeID",
+              "nativeQueryRef": "EmployeeID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Employee"
+                    }
+                  },
+                  "Property": "Fullname"
+                }
+              },
+              "queryRef": "Employee.Fullname",
+              "nativeQueryRef": "Full Name",
+              "displayName": "Full Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Employee"
+                    }
+                  },
+                  "Property": "HireDate"
+                }
+              },
+              "queryRef": "Employee.HireDate",
+              "nativeQueryRef": "Hire Date",
+              "displayName": "Hire Date"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PerformanceRating"
+                    }
+                  },
+                  "Property": "Lasted_Review_Date"
+                }
+              },
+              "queryRef": "PerformanceRating.Lasted_Review_Date",
+              "nativeQueryRef": "Lasted Review Date",
+              "displayName": "Lasted Review Date"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "calculate"
+                    }
+                  },
+                  "Property": "Next Review Date"
+                }
+              },
+              "queryRef": "calculate.Next Review Date",
+              "nativeQueryRef": "Next Review Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Employee"
+                    }
+                  },
+                  "Property": "YearsAtCompany"
+                }
+              },
+              "queryRef": "Sum(Employee.YearsAtCompany)",
+              "nativeQueryRef": "Years At Company",
+              "displayName": "Years At Company"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Employee"
+                    }
+                  },
+                  "Property": "JobRole"
+                }
+              },
+              "queryRef": "Employee.JobRole",
+              "nativeQueryRef": "Job Role",
+              "displayName": "Job Role"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Employee"
+                  }
+                },
+                "Property": "HireDate"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "142.37575499820724D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "PerformanceRating.Lasted_Review_Date"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "89.95112405199846D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Employee.HireDate"
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

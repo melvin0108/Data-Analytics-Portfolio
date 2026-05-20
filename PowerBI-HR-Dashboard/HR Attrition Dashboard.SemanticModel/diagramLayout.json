@@ -1,0 +1,126 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 794.2857142857099
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1351.4871795687006,
+            "y": 1708.3897482493462
+          },
+          "nodeIndex": "Employee",
+          "nodeLineageTag": "8372fdc7-42ec-4ddc-9837-b6eb592e8a5e",
+          "size": {
+            "height": 380,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1813.7258487302283,
+            "y": 1733.8876829493943
+          },
+          "nodeIndex": "PerformanceRating",
+          "nodeLineageTag": "e6a6af9c-ce78-4db7-87df-eb8ee7defd6f",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 1375.8548831471314,
+            "y": 2171.634884296735
+          },
+          "nodeIndex": "EducationLevel",
+          "nodeLineageTag": "c0eb0a7e-1303-4f08-b940-ffbc6d6a13e2",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 1801.3353306947909,
+            "y": 1524.0819002838052
+          },
+          "nodeIndex": "RatingLevel",
+          "nodeLineageTag": "168ad585-5edc-4c6e-b0ab-85192195da78",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 2069.6938005390307,
+            "y": 1555.9734338016983
+          },
+          "nodeIndex": "SatisfiedLevel",
+          "nodeLineageTag": "2176ff11-bc69-4543-ac20-7c94880224bd",
+          "size": {
+            "height": 146.42857142857142,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 2229.663029753362,
+            "y": 1844.6673764086377
+          },
+          "nodeIndex": "DimDate",
+          "nodeLineageTag": "ef434f3b-3077-4655-aedf-9edeb63545da",
+          "size": {
+            "height": 434.28571428571428,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 2074.9761728524809,
+            "y": 1307.5666413590143
+          },
+          "nodeIndex": "calculate",
+          "nodeLineageTag": "7f903357-82c4-436d-8dde-a2191db7277f",
+          "size": {
+            "height": 201.14285714285666,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 1404.6318504266353,
+            "y": 1428.2468114456717
+          },
+          "nodeIndex": "Result",
+          "nodeLineageTag": "5a1dce77-b456-4e6b-938d-dedc67254407",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 8
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 70.000000000000384,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

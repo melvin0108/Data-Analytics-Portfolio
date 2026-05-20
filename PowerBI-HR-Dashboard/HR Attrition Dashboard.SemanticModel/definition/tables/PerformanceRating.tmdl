@@ -1,0 +1,155 @@
+table PerformanceRating
+	lineageTag: e6a6af9c-ce78-4db7-87df-eb8ee7defd6f
+
+	measure Lasted_Review_Date = MAX(PerformanceRating[ReviewDate])
+		formatString: dd/mm/yyyy
+		lineageTag: fdc14239-365b-4c32-9db5-00dfb815e536
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column PerformanceID
+		dataType: string
+		lineageTag: 4e369b6e-164a-4791-97e2-fdcd0ca00bef
+		summarizeBy: none
+		sourceColumn: PerformanceID
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeID
+		dataType: string
+		lineageTag: cf0b2e73-4c09-41cd-bb21-e264115bb51d
+		summarizeBy: none
+		sourceColumn: EmployeeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReviewDate
+		dataType: dateTime
+		formatString: m/d/yyyy
+		lineageTag: d3a4907b-d175-49cf-a881-42c898fb2666
+		summarizeBy: none
+		sourceColumn: ReviewDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column EnvironmentSatisfaction
+		dataType: int64
+		formatString: 0
+		lineageTag: f6a3854d-f728-4bb4-992a-72db2b595a0d
+		summarizeBy: none
+		sourceColumn: EnvironmentSatisfaction
+
+		annotation SummarizationSetBy = User
+
+	column JobSatisfaction
+		dataType: int64
+		formatString: 0
+		lineageTag: 38d1c908-70e4-4510-a6c0-efa4956eb2f6
+		summarizeBy: none
+		sourceColumn: JobSatisfaction
+
+		annotation SummarizationSetBy = Automatic
+
+	column RelationshipSatisfaction
+		dataType: int64
+		formatString: 0
+		lineageTag: c9190044-6530-4cf1-bf59-b66deabe03e3
+		summarizeBy: sum
+		sourceColumn: RelationshipSatisfaction
+
+		annotation SummarizationSetBy = Automatic
+
+	column TrainingOpportunitiesWithinYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 302b430c-50f7-4231-86a1-b0b015846ef3
+		summarizeBy: sum
+		sourceColumn: TrainingOpportunitiesWithinYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column TrainingOpportunitiesTaken
+		dataType: int64
+		formatString: 0
+		lineageTag: a01daa27-dc94-4a54-ac44-d19d72506471
+		summarizeBy: sum
+		sourceColumn: TrainingOpportunitiesTaken
+
+		annotation SummarizationSetBy = Automatic
+
+	column WorkLifeBalance
+		dataType: int64
+		formatString: 0
+		lineageTag: a9673ed4-bdfa-4272-a417-edc39f064e95
+		summarizeBy: sum
+		sourceColumn: WorkLifeBalance
+
+		annotation SummarizationSetBy = Automatic
+
+	column SelfRating
+		dataType: int64
+		formatString: 0
+		lineageTag: 9ce6b1dd-5d3a-4d25-b878-9e7cb3e0060e
+		summarizeBy: none
+		sourceColumn: SelfRating
+
+		annotation SummarizationSetBy = Automatic
+
+	column ManagerRating
+		dataType: int64
+		formatString: 0
+		lineageTag: 5012c451-488b-43b6-b34d-cc2263136588
+		summarizeBy: sum
+		sourceColumn: ManagerRating
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnvironmentSatisfactionCategory =
+			SWITCH(
+			    TRUE(),
+			    [EnvironmentSatisfaction] < 2, "Bad",
+			    [EnvironmentSatisfaction] >= 2 && [EnvironmentSatisfaction] <=3 , "Normal",
+			    [EnvironmentSatisfaction] >3, "Good"
+			)
+		lineageTag: ecff00ab-3441-4605-9fa0-27234c7d2df9
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalSatisfaction = ```
+			
+			CALCULATE(
+			    SUMX(
+			        PerformanceRating,
+			        PerformanceRating[JobSatisfaction] +
+			        PerformanceRating[EnvironmentSatisfaction] +
+			        PerformanceRating[RelationshipSatisfaction] + 
+			        PerformanceRating[WorkLifeBalance]
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 1c3333c2-b57b-4c2c-ac11-e5a0df1a7525
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PerformanceRating = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Admin\PowerBI\week 3\Project 1 Data\PerformanceRating.csv"),[Delimiter=",", Columns=11, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"PerformanceID", type text}, {"EmployeeID", type text}, {"ReviewDate", type date}, {"EnvironmentSatisfaction", Int64.Type}, {"JobSatisfaction", Int64.Type}, {"RelationshipSatisfaction", Int64.Type}, {"TrainingOpportunitiesWithinYear", Int64.Type}, {"TrainingOpportunitiesTaken", Int64.Type}, {"WorkLifeBalance", Int64.Type}, {"SelfRating", Int64.Type}, {"ManagerRating", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

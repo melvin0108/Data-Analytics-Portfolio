@@ -1,0 +1,40 @@
+table PipelineSort
+	lineageTag: 59124d09-937e-47b2-b10c-cc3cc4fab4fb
+
+	column PipelineStep
+		lineageTag: 0aaf6720-f711-4058-9de5-77a54978cde5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [PipelineStep]
+		sortByColumn: PipelineOrder
+
+		annotation SummarizationSetBy = Automatic
+
+	column PipelineOrder
+		formatString: 0
+		lineageTag: 6de0f51e-7dc2-46cc-a8ef-980c11fb3ed1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [PipelineOrder]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PipelineSort = calculated
+		mode: import
+		source = ```
+				
+				DATATABLE(
+				    "PipelineStep", STRING,
+				    "PipelineOrder", INTEGER,
+				    {
+				        { "1-Qualify", 1 },
+				        { "2-Develop", 2 },
+				        { "3-Propose", 3 },
+				        { "4-Close", 4 }
+				    }
+				)
+				
+				```
+
+	annotation PBI_Id = 2457663d95884753baff9be7e0d05b2f
+

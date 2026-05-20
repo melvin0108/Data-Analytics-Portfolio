@@ -1,0 +1,144 @@
+table ContactTbl
+	lineageTag: ed14e5d0-0790-4a59-b8da-64800932e621
+
+	column ContactSeq
+		dataType: int64
+		formatString: 0
+		lineageTag: a2484ef0-3aea-45ad-a2fa-39a8a1f31a26
+		summarizeBy: none
+		sourceColumn: ContactSeq
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContactID
+		dataType: string
+		lineageTag: eb1ba234-704c-4608-a314-03b21609db3a
+		summarizeBy: none
+		sourceColumn: ContactID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Contact
+		dataType: string
+		lineageTag: f7ed37c5-7871-4d85-b8f2-42291700f4b4
+		summarizeBy: none
+		sourceColumn: Contact
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: 89aa77e4-86e2-4c03-9c1d-c5ae665dec70
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: f0ad1562-1ac2-4b7e-9c8c-db8fa33e2ed6
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountSeq
+		dataType: int64
+		formatString: 0
+		lineageTag: cf51acb0-4b40-42b5-96a2-47f59ebb77f1
+		summarizeBy: sum
+		sourceColumn: AccountSeq
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Job Title'
+		dataType: string
+		lineageTag: eeb4602e-94d5-4f7c-8c18-d0153893986e
+		summarizeBy: none
+		sourceColumn: Job Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column Street
+		dataType: string
+		lineageTag: e3f768fe-3084-48d1-a0bb-0b8bfdd6d58e
+		summarizeBy: none
+		sourceColumn: Street
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: d2d761fe-10a6-444f-b57f-c250a9e04677
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'State or Province'
+		dataType: string
+		lineageTag: 477ce2e5-41d6-47a8-94b7-a15191b335d7
+		summarizeBy: none
+		sourceColumn: State or Province
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Postal Code'
+		dataType: int64
+		formatString: 0
+		lineageTag: a6de141e-b320-4037-90ba-dc97249f716e
+		summarizeBy: count
+		sourceColumn: Postal Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: f8f69c81-374f-43da-9fe8-1108f838a074
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Latitude
+		dataType: double
+		lineageTag: 02fabbe7-525a-474e-b148-f94f77590c62
+		summarizeBy: sum
+		sourceColumn: Latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Longitude
+		dataType: double
+		lineageTag: 11ac3faf-ac51-4614-9d19-ac07e3d0c654
+		summarizeBy: sum
+		sourceColumn: Longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Phone
+		dataType: string
+		lineageTag: 02b3e54e-d135-4dea-a946-f57d446c798c
+		summarizeBy: none
+		sourceColumn: Phone
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ContactTbl = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\Admin\Downloads\Contoso - PowerBI Source Data.xlsx"), null, true),
+				    ContactTbl_Table = Source{[Item="ContactTbl",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(ContactTbl_Table,{{"ContactSeq", Int64.Type}, {"ContactID", type text}, {"Contact", type text}, {"FirstName", type text}, {"LastName", type text}, {"AccountSeq", Int64.Type}, {"Job Title", type text}, {"Street", type text}, {"City", type text}, {"State or Province", type text}, {"Postal Code", Int64.Type}, {"Country", type text}, {"Latitude", type number}, {"Longitude", type number}, {"Phone", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

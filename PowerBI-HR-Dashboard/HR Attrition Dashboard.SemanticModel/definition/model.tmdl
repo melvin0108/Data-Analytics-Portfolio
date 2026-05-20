@@ -1,0 +1,36 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Employee","PerformanceRating","EducationLevel","RatingLevel","SatisfiedLevel","calculate"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Employee
+ref table DateTableTemplate_2af23a70-3154-431e-bbe5-c4583784dafc
+ref table PerformanceRating
+ref table EducationLevel
+ref table RatingLevel
+ref table SatisfiedLevel
+ref table DimDate
+ref table LocalDateTable_5e15ea30-91e4-4a0a-9569-0bc5eba1cc78
+ref table LocalDateTable_700e9ee6-02ae-42b2-aaf9-412d72e44892
+ref table LocalDateTable_1cd9733d-7d04-4439-b6c6-dcc69aaca261
+ref table LocalDateTable_0e147095-cee4-45a4-ba6d-688e6800509e
+ref table LocalDateTable_4d40ff6b-a0f6-41e0-8bdf-613cd100e3a1
+ref table LocalDateTable_1e1a2cd5-a89b-458d-9684-b7e8a94f81ef
+ref table LocalDateTable_cfdde637-a082-49c8-817b-cf620faf55b1
+ref table LocalDateTable_2760b59f-8395-4b37-9637-303761bf2762
+ref table LocalDateTable_4e6e2507-4ddc-4f1f-8cfc-96b8ea5834de
+ref table LocalDateTable_147f9716-c286-46e1-817a-0e441d10c16f
+ref table calculate
+ref table Result
+
+ref cultureInfo en-US
+

@@ -1,0 +1,73 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "c78b53331a3ba788036b",
+  "position": {
+    "x": 0,
+    "y": 526.78936605316972,
+    "z": 4000,
+    "height": 59.550102249488752,
+    "width": 193.04703476482618,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PerformanceRating"
+                    }
+                  },
+                  "Property": "EnvironmentSatisfactionCategory"
+                }
+              },
+              "queryRef": "PerformanceRating.EnvironmentSatisfactionCategory",
+              "nativeQueryRef": "Environment Satisfaction",
+              "active": true,
+              "displayName": "Environment Satisfaction"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
