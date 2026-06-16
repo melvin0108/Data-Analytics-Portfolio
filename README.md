@@ -1,4 +1,4 @@
-# Data-Analyticss-Portfolio
+# Data-Analytics-Portfolio
 Melvin's Data Analytics Portfolio
 
 Hi there! 👋 Welcome to my consolidated analytics portfolio. This repository brings together several key projects, showcasing my skills across a range of BI and web technologies, from Tableau and Power BI to custom web dashboards with D3.js.
@@ -14,8 +14,8 @@ My goal is to turn raw data into clear, actionable insights. Below, you'll find 
 | **[ICMRA Strategic Analytics Dashboard (Power BI)](#1-icmra-strategic-analytics-dashboard-power-bi)** | A board-level strategic analytics platform for the International Consortium for Medical Research Advancement (ICMRA), analysing 7 years of fundraising data (2019–2025) with six advanced techniques - RFM, CLV, churn, cohort, market basket, and What-If - on a Snowflake + dbt + Power BI stack. | [View on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiMjBiN2RhNDktNmQyMi00ZWQ4LWI3OGItMWJiNjZmOGQ2OTQ2IiwidCI6ImRmN2Y3NTc5LTNlOWMtNGE3ZS1iODQ0LTQyMDI4MGY1Mzg1OSIsImMiOjEwfQ%3D%3D&pageName=37bdcea38ca92b40603d) |
 | **[Procurement Dashboard (Tableau)](#2-procurement-dashboard-tableau)**              | A strategic dashboard for a retail chain, analyzing procurement data to identify cost savings, manage supplier risk, and optimize spending.                       | [View on Tableau Public](https://public.tableau.com/views/Velocipede_Cycles_Procurement_Analytics_Dashboard/KPIMonitoringDashboard?:language=en-US) |
 | **[Speeding Fines Dashboard (D3.js)](#3-interactive-speeding-fines-dashboard-d3js)** | An interactive web dashboard visualizing Australian speeding fine data with D3.js, featuring data processed by a KNIME ETL workflow.                       | [View Live Website](https://web-dashboard-speeding-fines-2023-australia.s3.ap-southeast-2.amazonaws.com/index.html)                          |
-| **[HR Attrition Dashboard (Power BI)](#4-hr-attrition-dashboard-power-bi)**            | An HR analytics dashboard designed to uncover the key drivers of employee turnover, providing actionable insights to improve retention.                          | [View on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiY2M0N2U2NGQtM2E5NC00ODc3LThkMTAtODAxMjFiZDBlNGE5IiwidCI6ImRmN2Y3NTc5LTNlOWMtNGE3ZS1iODQ0LTQyMDI4MGY1Mzg1OSIsImMiOjEwfQ%3D%3D)      |
-| **[Contoso Sales Dashboard (Power BI)](#5-contoso-sales-dashboard-power-bi)**        | A comprehensive sales and customer service dashboard for an e-commerce business, tracking KPIs from revenue and deals to client satisfaction. | [View on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiZTk1ZjhiMWItOTVhYS00NjhlLWIyMDAtYjU1N2M4NTdmN2M2IiwidCI6ImRmN2Y3NTc5LTNlOWMtNGE3ZS1iODQ0LTQyMDI4MGY1Mzg1OSIsImMiOjEwfQ%3D%3D)      |
+| **[HR Attrition Dashboard (Power BI)](#4-hr-attrition-dashboard-power-bi)**            | An HR analytics dashboard designed to uncover the key drivers of employee turnover, providing actionable insights to improve retention.                          | [View on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiYTE5ZTk0ODctMzcwOS00OGU3LWFkZGUtMWZlYmY5ODdmMmFjIiwidCI6ImRmN2Y3NTc5LTNlOWMtNGE3ZS1iODQ0LTQyMDI4MGY1Mzg1OSIsImMiOjEwfQ%3D%3D)      |
+| **[Contoso Sales Dashboard (Power BI)](#5-contoso-sales-dashboard-power-bi)**        | A comprehensive sales and customer service dashboard for an e-commerce business, tracking KPIs from revenue and deals to client satisfaction. | [View on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiODEyNTQ4YzctZjdlMi00MjRmLTlhMzQtNTJkNDYwMzU5NGNkIiwidCI6ImRmN2Y3NTc5LTNlOWMtNGE3ZS1iODQ0LTQyMDI4MGY1Mzg1OSIsImMiOjEwfQ%3D%3D)      |
 
 ---
 
@@ -198,7 +198,7 @@ The raw data from various jurisdictions required significant cleaning and transf
 ## 4. HR Attrition Dashboard (Power BI)
 Mr. Ryan, the Head of HR, wanted a comprehensive and interactive dashboard to analyze the company’s employees. The goal was to answer key HR questions about employee demographics, workforce size, attrition rates, hiring trends, performance ratings, and satisfaction scores. This dashboard allows executives to filter by department, gender, age group, and year to get both a high-level overview and detailed insights for better decision-making.
 
-**View Live Dashboard:** [Click here to view on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiY2M0N2U2NGQtM2E5NC00ODc3LThkMTAtODAxMjFiZDBlNGE5IiwidCI6ImRmN2Y3NTc5LTNlOWMtNGE3ZS1iODQ0LTQyMDI4MGY1Mzg1OSIsImMiOjEwfQ%3D%3D&pageName=23985c93ca4941285647)
+**View Live Dashboard:** [Click here to view on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiYTE5ZTk0ODctMzcwOS00OGU3LWFkZGUtMWZlYmY5ODdmMmFjIiwidCI6ImRmN2Y3NTc5LTNlOWMtNGE3ZS1iODQ0LTQyMDI4MGY1Mzg1OSIsImMiOjEwfQ%3D%3D&pageName=23985c93ca4941285647)
 
 ### Dashboard Snapshots
 ### 📍 Employee Overview
@@ -240,7 +240,7 @@ Mr. Ryan, the Head of HR, wanted a comprehensive and interactive dashboard to an
 ## 5. Contoso Sales Dashboard (Power BI)
 The CEO of the Contoso e-commerce business needs a single interactive dashboard to understand the company’s sales performance and customer service efficiency. This dashboard helps them track revenue trends, see which products and campaigns bring in the most sales, and check if KPIs are being met. It also shows how well the customer service team is performing, who the top revenue clients are, and which open cases need attention so the company can improve client retention and satisfaction.
 
-**View Live Dashboard:** [Click here to view on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiZTk1ZjhiMWItOTVhYS00NjhlLWIyMDAtYjU1N2M4NTdmN2M2IiwidCI6ImRmN2Y3NTc5LTNlOWMtNGE3ZS1iODQ0LTQyMDI4MGY1Mzg1OSIsImMiOjEwfQ%3D%3D&pageName=ReportSection909ea50e7939156807d6)
+**View Live Dashboard:** [Click here to view on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiODEyNTQ4YzctZjdlMi00MjRmLTlhMzQtNTJkNDYwMzU5NGNkIiwidCI6ImRmN2Y3NTc5LTNlOWMtNGE3ZS1iODQ0LTQyMDI4MGY1Mzg1OSIsImMiOjEwfQ%3D%3D&pageName=ReportSection909ea50e7939156807d6)
 
 ### Dashboard Snapshots
 ### 📍 Sales Overview
