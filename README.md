@@ -11,14 +11,80 @@ My goal is to turn raw data into clear, actionable insights. Below, you'll find 
 
 | Project                                                              | Description                                                                                                                                                           | Live Demo                                                                                                                                          |
 | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **[Procurement Dashboard (Tableau)](#1-procurement-dashboard-tableau)**              | A strategic dashboard for a retail chain, analyzing procurement data to identify cost savings, manage supplier risk, and optimize spending.                       | [View on Tableau Public](https://public.tableau.com/views/Velocipede_Cycles_Procurement_Analytics_Dashboard/KPIMonitoringDashboard?:language=en-US) |
-| **[Speeding Fines Dashboard (D3.js)](#2-interactive-speeding-fines-dashboard-d3js)** | An interactive web dashboard visualizing Australian speeding fine data with D3.js, featuring data processed by a KNIME ETL workflow.                       | [View Live Website](https://web-dashboard-speeding-fines-2023-australia.s3.ap-southeast-2.amazonaws.com/index.html)                          |
-| **[HR Attrition Dashboard (Power BI)](#3-hr-attrition-dashboard-power-bi)**            | An HR analytics dashboard designed to uncover the key drivers of employee turnover, providing actionable insights to improve retention.                          | [View on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiY2M0N2U2NGQtM2E5NC00ODc3LThkMTAtODAxMjFiZDBlNGE5IiwidCI6ImRmN2Y3NTc5LTNlOWMtNGE3ZS1iODQ0LTQyMDI4MGY1Mzg1OSIsImMiOjEwfQ%3D%3D)      |
-| **[Contoso Sales Dashboard (Power BI)](#4-contoso-sales-dashboard-power-bi)**        | A comprehensive sales and customer service dashboard for an e-commerce business, tracking KPIs from revenue and deals to client satisfaction. | [View on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiZTk1ZjhiMWItOTVhYS00NjhlLWIyMDAtYjU1N2M4NTdmN2M2IiwidCI6ImRmN2Y3NTc5LTNlOWMtNGE3ZS1iODQ0LTQyMDI4MGY1Mzg1OSIsImMiOjEwfQ%3D%3D)      |
+| **[ICMRA Strategic Analytics Dashboard (Power BI)](#1-icmra-strategic-analytics-dashboard-power-bi)** | A board-level strategic analytics platform for the International Consortium for Medical Research Advancement (ICMRA), analysing 7 years of fundraising data (2019–2025) with six advanced techniques - RFM, CLV, churn, cohort, market basket, and What-If - on a Snowflake + dbt + Power BI stack. | [View on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiMjBiN2RhNDktNmQyMi00ZWQ4LWI3OGItMWJiNjZmOGQ2OTQ2IiwidCI6ImRmN2Y3NTc5LTNlOWMtNGE3ZS1iODQ0LTQyMDI4MGY1Mzg1OSIsImMiOjEwfQ%3D%3D&pageName=37bdcea38ca92b40603d) |
+| **[Procurement Dashboard (Tableau)](#2-procurement-dashboard-tableau)**              | A strategic dashboard for a retail chain, analyzing procurement data to identify cost savings, manage supplier risk, and optimize spending.                       | [View on Tableau Public](https://public.tableau.com/views/Velocipede_Cycles_Procurement_Analytics_Dashboard/KPIMonitoringDashboard?:language=en-US) |
+| **[Speeding Fines Dashboard (D3.js)](#3-interactive-speeding-fines-dashboard-d3js)** | An interactive web dashboard visualizing Australian speeding fine data with D3.js, featuring data processed by a KNIME ETL workflow.                       | [View Live Website](https://web-dashboard-speeding-fines-2023-australia.s3.ap-southeast-2.amazonaws.com/index.html)                          |
+| **[HR Attrition Dashboard (Power BI)](#4-hr-attrition-dashboard-power-bi)**            | An HR analytics dashboard designed to uncover the key drivers of employee turnover, providing actionable insights to improve retention.                          | [View on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiY2M0N2U2NGQtM2E5NC00ODc3LThkMTAtODAxMjFiZDBlNGE5IiwidCI6ImRmN2Y3NTc5LTNlOWMtNGE3ZS1iODQ0LTQyMDI4MGY1Mzg1OSIsImMiOjEwfQ%3D%3D)      |
+| **[Contoso Sales Dashboard (Power BI)](#5-contoso-sales-dashboard-power-bi)**        | A comprehensive sales and customer service dashboard for an e-commerce business, tracking KPIs from revenue and deals to client satisfaction. | [View on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiZTk1ZjhiMWItOTVhYS00NjhlLWIyMDAtYjU1N2M4NTdmN2M2IiwidCI6ImRmN2Y3NTc5LTNlOWMtNGE3ZS1iODQ0LTQyMDI4MGY1Mzg1OSIsImMiOjEwfQ%3D%3D)      |
 
 ---
 
-## 1. Procurement Dashboard (Tableau)
+## 1. ICMRA Strategic Analytics Dashboard (Power BI)
+This project is a board-level strategic analytics platform built for **ICMRA** - the International Consortium for Medical Research Advancement - to review seven years of fundraising performance (FY2019–2025). It runs on a modern **Snowflake + dbt + Power BI** stack in which **Power BI serves purely as the BI / presentation layer**. The entire semantic model - star-schema dimensions, the pledges fact table, and the advanced analytics marts (RFM, CLV, cohort retention, market basket) - is engineered in **dbt** and materialised in **Snowflake**; Power BI simply imports the curated `ANALYTICS` schema to deliver six advanced analytical techniques across a single interactive experience for the Board of Directors.
+
+**View Live Dashboard:** [Click here to view on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiMjBiN2RhNDktNmQyMi00ZWQ4LWI3OGItMWJiNjZmOGQ2OTQ2IiwidCI6ImRmN2Y3NTc5LTNlOWMtNGE3ZS1iODQ0LTQyMDI4MGY1Mzg1OSIsImMiOjEwfQ%3D%3D&pageName=37bdcea38ca92b40603d)
+
+> 📚 **Full semantic-layer & architecture documentation** - the dbt DAG, Snowflake schema design (`RAW → STAGING → ANALYTICS → REPORTING`), star-schema model diagrams, and the Power BI migration (19 tables → 9, ~114 DAX measures → ~25, all ETL moved out of Power Query into dbt) - is documented in the project's own **[`README.md`](./ICMRA%20Strategic%20Analytics-Dashboard/README.md)**. Start there for the data engineering behind the dashboard.
+
+### Dashboard Snapshots
+### 📍 Overview
+<img src="./ICMRA%20Strategic%20Analytics-Dashboard/images/Overview.png" alt="Overview">
+
+### 📍 Contributor Insight
+<img src="./ICMRA%20Strategic%20Analytics-Dashboard/images/Contributor%20Insight.png" alt="Contributor Insight">
+
+### 📍 Campaign Performance
+<img src="./ICMRA%20Strategic%20Analytics-Dashboard/images/Campaign%20Performance.png" alt="Campaign Performance">
+
+### 📍 RFM Analysis
+<img src="./ICMRA%20Strategic%20Analytics-Dashboard/images/RFM%20Analysis.png" alt="RFM Analysis">
+
+### 📍 CLV and Churn
+<img src="./ICMRA%20Strategic%20Analytics-Dashboard/images/CLV%20and%20Churn.png" alt="CLV and Churn">
+
+### 📍 Cohort Retention
+<img src="./ICMRA%20Strategic%20Analytics-Dashboard/images/Cohort%20Retention.png" alt="Cohort Retention">
+
+### 📍 Market Basket
+<img src="./ICMRA%20Strategic%20Analytics-Dashboard/images/Market%20Basket.png" alt="Market Basket">
+
+### 📍 What-If Goal Seek
+<img src="./ICMRA%20Strategic%20Analytics-Dashboard/images/What-if%20Analysis.png" alt="What-If Goal Seek">
+
+### 📍 Advanced Anomalies
+<img src="./ICMRA%20Strategic%20Analytics-Dashboard/images/Advanced%20Anomalies.png" alt="Advanced Anomalies">
+
+### 💡 Key Insights
+- ✅ **Strong but volatile growth:** Total paid revenue reached **$32.9M** across **44,899 paid pledges** from **2,325 contributors**, with a **99.8%** pledge conversion rate and **1,075%** campaign ROI. Revenue surged from $1.36M (2019) to a peak of $12.78M (2023) before contracting to $2.76M (2025), driven by campaign cycles.
+- ✅ **Acute concentration risk:** **78%** of revenue flows through the Partnerships channel, **68%** comes from Cancer Research alone, and **70.7%** originates from the Americas - a dangerously narrow base.
+- ✅ **A bipolar contributor portfolio:** Champions and Loyal Customers (496 accounts) generate **35.6%** of revenue, while the at-risk tier - At Risk and Cannot Lose Them (468 accounts) - holds **$9.2M** in historical revenue that is actively lapsing.
+- ✅ **Churn is a material threat:** Portfolio churn sits at **24.9%** (CLV $1.17M, contributor lifetime 83 months). Revenue at risk across churned and high-churn segments totals **$7.6M (23.2%)**; Cannot Lose Them alone churns at **93%**.
+- ✅ **The Month 3–6 cohort cliff:** Every 2019–2025 cohort shows strong early retention followed by a sharp drop-off between Month 3 and Month 6 - yet donors who survive past Month 12 become long-term contributors.
+- ✅ **Cross-sell opportunities:** Market basket analysis reveals near-universal cross-donation across research areas; **Neuroscience → Workforce & Capacity** is the strongest bundle (Lift 1.05, 89% support, 100% confidence).
+- ✅ **A clear growth path:** What-If scenario modelling shows a **+15%** growth rate would project **$37.8M** in FY2026 revenue, closing the funding gap through Champion retention, at-risk reactivation, and cross-sell bundling.
+
+### 📈 Recommendations for Business Growth
+- 📌 **Defend Champions & Loyal Customers:** Ring-fence ~40% of the stewardship budget for these 496 accounts ($11.7M) through CLV-weighted relationship management to protect the revenue core.
+- 📌 **Recover the at-risk tier:** Launch a 12-week RFM-triggered reactivation campaign for At Risk and Cannot Lose Them (468 accounts, $9.2M) to recover up to ~$1.8M in dormant revenue.
+- 📌 **Bridge the Month 3–6 cliff:** Introduce a "Month 4 Stewardship Package" (impact report + thank-you + renewal ask), targeting ≥50% cohort retention at Month 6 for all new FY2026 cohorts.
+- 📌 **Bundle high-lift research areas:** Deploy Neuroscience + Workforce & Capacity bundle appeals via the under-utilised Digital channel (currently just 1.9% of revenue) to lift average gift size by 8–10%.
+- 📌 **Set +15% as the FY2026 operating target:** Adopt the What-If dashboard as the standing financial planning instrument at quarterly Board meetings.
+- 📌 **Diversify beyond Partnerships:** Shift ~5% of the Partnerships budget into Digital to reduce channel concentration risk.
+
+### 🛠️ Tech Stack
+- **Power BI (Presentation / BI Layer)** – Imports the curated `ANALYTICS` schema from Snowflake and renders 10 report pages / 69 visuals. It holds only the interactive presentation-layer measures (What-If parameters, KPI formatting, dynamic titles) - no ETL or heavy modelling lives here.
+- **Snowflake (Storage Layer)** – Cloud analytical engine with a layered warehouse (`RAW` → `STAGING` → `ANALYTICS` → `REPORTING` schemas) and time travel.
+- **dbt (Transformation / Semantic Layer)** – All ETL and modelling: staging → intermediate → star-schema marts, plus the analytics marts `rfm_analysis`, `clv_analysis`, `cohort_retention`, and `basket_pairs`; version-controlled and covered by dbt tests, deployed via GitHub Actions CI/CD.
+- **Advanced Analytics** – RFM segmentation, CLV, churn prediction, cohort retention, and market basket association rules - implemented as dbt SQL marts in Snowflake, not as DAX.
+
+### Project Files
+- 📄 **[`Report.pbix`](./ICMRA%20Strategic%20Analytics-Dashboard/Report.pbix)** – The Power BI presentation-layer dashboard (10 pages, 69 visuals).
+- 📚 **[`Project README – Semantic Layer Docs`](./ICMRA%20Strategic%20Analytics-Dashboard/README.md)** – The authoritative engineering documentation: dbt DAG, Snowflake schema design, star-schema model diagrams, and the Power BI before/after. **Best place to start for the data engineering behind the dashboard.**
+- 📁 **[`dbt_project/`](./ICMRA%20Strategic%20Analytics-Dashboard/dbt_project/)** & **[`snowflake/`](./ICMRA%20Strategic%20Analytics-Dashboard/snowflake/)** – The dbt transformation models and the Snowflake infrastructure-as-code.
+- 📊 **[`ICMRA Dataset 2019-2025.xlsx`](./ICMRA%20Strategic%20Analytics-Dashboard/ICMRA%20Dataset%202019-2025.xlsx)** – The source fundraising dataset.
+- 📄 **[`ICMRA Strategic Analytics Infographic.pdf`](./ICMRA%20Strategic%20Analytics-Dashboard/ICMRA%20Strategic%20Analytics%20Infographic.pdf)** – One-page board-level executive summary.
+
+## 2. Procurement Dashboard (Tableau)
 This dashboard offers a strategic deep-dive into the procurement operations of **'Velocipede Cycles'**, an expanding Australian retail chain. Tasked with addressing shrinking profit margins amid growing sales, this project analyzes two years of purchasing data to uncover cost-saving opportunities, mitigate supply chain risks, and enhance supplier management. The visualizations are tailored for a senior management audience, transforming complex data into clear, actionable insights.
 
 **View Live Dashboard:** [Click here to view on Tableau Public](https://public.tableau.com/views/Velocipede_Cycles_Procurement_Analytics_Dashboard/KPIMonitoringDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
@@ -39,7 +105,7 @@ This dashboard offers a strategic deep-dive into the procurement operations of *
 ### 💡 Key Insights
 
 - ✅ **High-Risk Supplier Concentration:** Spend grew 10% year-on-year to $11.5M, but remains concentrated on just 10 suppliers. The top four vendors account for 54% of total spend, creating significant supply chain vulnerability.
-- ✅ **Strategic Components Drive Budget:** Nearly half (49%) of the entire procurement budget is spent on just three categories—frames, displays, and batteries. Optimizing costs in these areas offers the highest potential financial impact.
+- ✅ **Strategic Components Drive Budget:** Nearly half (49%) of the entire procurement budget is spent on just three categories - frames, displays, and batteries. Optimizing costs in these areas offers the highest potential financial impact.
 - ✅ **Untapped Savings in Price Variance:** Significant price gaps exist for identical items between suppliers (e.g., a $260 difference per carbon frame), highlighting clear opportunities for cost reduction through strategic sourcing.
 - ✅ **Evidence of Successful Past Optimizations:** A 26% decrease in overall potential savings from 2023 indicates that prior cost-cutting initiatives were effective, particularly in core component categories.
 - ✅ **Predictable Seasonal Spending Patterns:** Procurement activity follows a clear seasonal cycle with peaks in March–April and June–October, offering strategic windows for contract negotiations during quieter periods.
@@ -61,7 +127,7 @@ This dashboard offers a strategic deep-dive into the procurement operations of *
 - 📄 **[`final_dashboard.twbx`](./Tableau-Procurement-Dashboard/final_dashboard.twbx)** – The complete Tableau workbook package containing all dashboards, data sources, and formatting.
 - 📊 **[`Cleaned_Data_Velocipede_Cycles.xlsx`](./Tableau-Procurement-Dashboard/dataset/Cleaned_Data_Velocipede_Cycles.xlsx)** – The cleaned and prepared dataset used for the analysis.
 
-## 2. Interactive Speeding Fines Dashboard (D3.js)
+## 3. Interactive Speeding Fines Dashboard (D3.js)
 This project addresses a brief from the Bureau of Infrastructure and Transport Research Economics (BITRE) to visualize newly detailed road safety enforcement data from 2023. The result is a fully interactive, custom-built web dashboard using D3.js to visualize data on speeding fines across Australia. It allows users to explore when, where, and how Australians were fined, telling a data-driven story about traffic enforcement patterns. The design process is documented in a detailed design book.
 
 **View Live Dashboard:** [Click here to view the live dashboard](https://web-dashboard-speeding-fines-2023-australia.s3.ap-southeast-2.amazonaws.com/index.html)
@@ -129,7 +195,7 @@ The raw data from various jurisdictions required significant cleaning and transf
 ### Project Files
 - 📁 **[`Project Folder`](./Website-Dashboard-Speeding-Fines-2023-Australia/)** – Contains all project files including `index.html`, `js/`, `css/`, and `data/`.
 
-## 3. HR Attrition Dashboard (Power BI)
+## 4. HR Attrition Dashboard (Power BI)
 Mr. Ryan, the Head of HR, wanted a comprehensive and interactive dashboard to analyze the company’s employees. The goal was to answer key HR questions about employee demographics, workforce size, attrition rates, hiring trends, performance ratings, and satisfaction scores. This dashboard allows executives to filter by department, gender, age group, and year to get both a high-level overview and detailed insights for better decision-making.
 
 **View Live Dashboard:** [Click here to view on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiY2M0N2U2NGQtM2E5NC00ODc3LThkMTAtODAxMjFiZDBlNGE5IiwidCI6ImRmN2Y3NTc5LTNlOWMtNGE3ZS1iODQ0LTQyMDI4MGY1Mzg1OSIsImMiOjEwfQ%3D%3D&pageName=23985c93ca4941285647)
@@ -171,7 +237,7 @@ Mr. Ryan, the Head of HR, wanted a comprehensive and interactive dashboard to an
 - 📄 **[`HR Attrition Dashboard.pbix`](./PowerBI-HR-Dashboard/HR%20Attrition%20Dashboard.pbix)**: The Power BI dashboard file.
 - 📁 **[`dataset/`](./PowerBI-HR-Dashboard/dataset/)**: The complete dataset used for the analysis.
 
-## 4. Contoso Sales Dashboard (Power BI)
+## 5. Contoso Sales Dashboard (Power BI)
 The CEO of the Contoso e-commerce business needs a single interactive dashboard to understand the company’s sales performance and customer service efficiency. This dashboard helps them track revenue trends, see which products and campaigns bring in the most sales, and check if KPIs are being met. It also shows how well the customer service team is performing, who the top revenue clients are, and which open cases need attention so the company can improve client retention and satisfaction.
 
 **View Live Dashboard:** [Click here to view on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiZTk1ZjhiMWItOTVhYS00NjhlLWIyMDAtYjU1N2M4NTdmN2M2IiwidCI6ImRmN2Y3NTc5LTNlOWMtNGE3ZS1iODQ0LTQyMDI4MGY1Mzg1OSIsImMiOjEwfQ%3D%3D&pageName=ReportSection909ea50e7939156807d6)
